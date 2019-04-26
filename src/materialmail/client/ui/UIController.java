@@ -5,7 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import materialmail.client.model.ClientModel;
+import materialmail.client.model.Model;
 import materialmail.core.Mail;
 
 import java.net.URL;
@@ -15,7 +15,8 @@ public class UIController implements Initializable {
 
     private Stage stage;
 
-//    private final String currentUser = ClientModel.getClientModel().getCurrentUser().getUsername();
+//    private final String currentUser = Model.getModel().getCurrentUser().getUsername();
+    private final String currentUser = "alex@matmail.com";
 
     @FXML
     private Label fromLabel, toLabel, subjectLabel, usernameLabel;
@@ -23,6 +24,8 @@ public class UIController implements Initializable {
     @FXML
     private Button newMailButton, sendButton, modifyButton, forwardButton, replyButton, replyAllButton, deleteButton;
 
+    /*A ListView displays a horizontal or vertical list of items
+     from which the user may select, or with which the user may interact.*/
     @FXML
     private ListView<Mail> listinbox, listsent, listdraft;
 
@@ -39,6 +42,10 @@ public class UIController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        usernameLabel.setText(currentUser); //imposto il label con il nome dell'utente loggato
+
+//        Model.getModel().currentMailProperty().addListener();
+
         clearAllSelections();
         initializeLists();
     }
@@ -51,9 +58,21 @@ public class UIController implements Initializable {
 
 
     private void initializeLists() {
-        listsent.setItems(ClientModel.getClientModel().getListSent());
-        listdraft.setItems(ClientModel.getClientModel().getListDraft());
-        listinbox.setItems(ClientModel.getClientModel().getListInbox());
+//        listsent.setItems(Model.getModel().getListSent());
+        listsent.setItems(Model.getModel().getListSentByName(currentUser));
+//        listsent.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+//        listsent.getSelectionModel().selectedIndexProperty().addListener((obsValue, oldValue, newValue) -> {
+//            int newindex = (int) newValue;
+//
+//            if (!listsent.getSelectionModel().isEmpty() && newindex >= 0) {
+//                System.out.println("New mail selected from sent list");
+////                sentTabShow();
+//                Model.getModel().setCurrentMail(Model.getModel().getSentMailByIndex(newindex));
+//            }
+//        });
+
+        listdraft.setItems(Model.getModel().getListDraft());
+        listinbox.setItems(Model.getModel().getListInbox());
     }
 
     public void setStage(Stage stage) {

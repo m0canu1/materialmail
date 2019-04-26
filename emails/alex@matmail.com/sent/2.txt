@@ -1,1 +1,0 @@
-2|22-marzo-2019, 18:30|alex@matmail.com|daniele@matmail.com|OGGETTO MAIL 1|questo è il testo dell'email, ora vado a capo\nora sono a capo; fine testo email.

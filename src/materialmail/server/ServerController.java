@@ -29,7 +29,7 @@ public class ServerController {
 //    public void initModel(ServerModel model) {
 //        //Ensure model is only set once
 //        if (this.model != null) {
-//            throw new IllegalStateException("ClientModel can only be initialized once");
+//            throw new IllegalStateException("Model can only be initialized once");
 //        }
 //
 //        this.model = model;

@@ -43,8 +43,6 @@ public class LoginController implements Initializable {
         Toolkit.getDefaultToolkit().beep();
     }
 
-
-
     public void setStage(Stage stage) {
         this.stage = stage;
     }

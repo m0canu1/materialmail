@@ -15,7 +15,7 @@
                     <ListView fx:id="listinbox" prefHeight="200.0" prefWidth="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                 </Tab>
                 <Tab text="Sent">
-                    <!-- Mail list -->
+                    <!-- Email list -->
                     <ListView fx:id="listsent" prefHeight="200.0" prefWidth="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                 </Tab>
                 <Tab text="Drafts">
@@ -119,7 +119,7 @@
                 <TextArea fx:id="maildate" editable="false" prefRowCount="1" styleClass="undecorated-text-area" text="13/08/1994" />
                 <HBox spacing="5.0">
                     <Label alignment="CENTER_RIGHT" minWidth="45.0" text="From" textAlignment="RIGHT" HBox.hgrow="NEVER" />
-                    <Label fx:id="fromLabel" styleClass="label-enveloped" text="mail of sender here" />
+                    <Label fx:id="fromLabel" styleClass="label-enveloped" text="email of sender here" />
                     <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                     </padding>
@@ -137,12 +137,12 @@
                             <Bloom threshold="0.0" />
                         </effect>
                     </Separator>
-                    <Label fx:id="subjectLabel" prefHeight="43.0" prefWidth="444.0" styleClass="title-text-area" text="Subject" VBox.vgrow="NEVER">
+                    <Label fx:id="subjectLabel" prefHeight="43.0" prefWidth="444.0" styleClass="object-text-area" text="Subject" VBox.vgrow="NEVER">
                         <padding>
                             <Insets left="10.0" top="10.0" />
                         </padding>
                     </Label>
-                    <TextArea fx:id="mailcontent" editable="false" styleClass="undecorated-text-area" text="mail content" wrapText="true" VBox.vgrow="SOMETIMES">
+                    <TextArea fx:id="mailcontent" editable="false" styleClass="undecorated-text-area" text="email content" wrapText="true" VBox.vgrow="SOMETIMES">
                         <VBox.margin>
                             <Insets left="10.0" />
                         </VBox.margin>
@@ -153,10 +153,10 @@
                 </VBox>
             </VBox>
             <VBox fx:id="noMailBox" alignment="BOTTOM_CENTER" prefHeight="119.0">
-                <Label fx:id="loggedas1" alignment="BOTTOM_CENTER" styleClass="label-enveloped" text="Select a mail to view it." textAlignment="CENTER">
+                <Label fx:id="loggedas1" alignment="BOTTOM_CENTER" styleClass="label-enveloped" text="Select a email to view it." textAlignment="CENTER">
                     <graphic>
                         <ImageView fitHeight="150.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                            <Image url="@../../resources/mail.png" />
+                            <Image url="@../../resources/email.png" />
                         </ImageView>
                     </graphic>
                 </Label>

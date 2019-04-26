@@ -1,10 +1,9 @@
 package materialmail.client.model;
 
-import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import materialmail.core.Mail;
+import materialmail.core.Email;
 import materialmail.core.User;
 
 import java.sql.Timestamp;
@@ -23,16 +22,16 @@ public class Model {
      * invia in automatico le notifiche agli osservatori quando cambia lo stato degli
      * oggetti.
      */
-    private final ObservableList<Mail> listInbox = FXCollections.observableArrayList();
+    private final ObservableList<Email> listInbox = FXCollections.observableArrayList();
 
-    private final ObservableList<Mail> listSent = FXCollections.observableArrayList();
+    private final ObservableList<Email> listSent = FXCollections.observableArrayList();
 
-    private final ObservableList<Mail> listDraft = FXCollections.observableArrayList();
+    private final ObservableList<Email> listDraft = FXCollections.observableArrayList();
 
-    private final ObservableList<Mail> mailsToNotify = FXCollections.observableArrayList();
+    private final ObservableList<Email> mailsToNotify = FXCollections.observableArrayList();
 
     /*definisco la property di currentMail*/
-    private SimpleObjectProperty<Mail> currentMail;
+    private SimpleObjectProperty<Email> currentMail;
 
     /*il nome dell'utente corrente*/
     private User CurrentUser;
@@ -49,34 +48,34 @@ public class Model {
     }
 
 
-    public SimpleObjectProperty<Mail> currentMailProperty() {
+    public SimpleObjectProperty<Email> currentMailProperty() {
         return currentMail;
     }
 
-    public final Mail getCurrentMail() {
+    public final Email getCurrentMail() {
         return currentMail.get();
     }
 
 
-    public final void setCurrentMail(Mail mail) {
-        currentMail.set(mail);
+    public final void setCurrentMail(Email email) {
+        currentMail.set(email);
     }
 
 
-    public Mail getDraftByIndex(int i) {
+    public Email getDraftByIndex(int i) {
         return listDraft.get(i);
     }
 
-    public Mail getSentMailByIndex(int i) {
+    public Email getSentMailByIndex(int i) {
         return listSent.get(i);
     }
 
-    public Mail getReceivedMailByIndex(int i) {
+    public Email getReceivedMailByIndex(int i) {
         return listInbox.get(i);
     }
 
     // Observable getters
-    public ObservableList<Mail> getListInbox() {
+    public ObservableList<Email> getListInbox() {
         return listInbox;
     }
 
@@ -84,7 +83,7 @@ public class Model {
      *
      * @return the list of all sent emails by the current user
      */
-    public ObservableList<Mail> getListSent() {
+    public ObservableList<Email> getListSent() {
         return listSent;
     }
 
@@ -93,16 +92,16 @@ public class Model {
      * @param user the user which we want to get sent emails from
      * @return the list of all sent emails
      */
-    public ObservableList<Mail> getListSentByName(String user) {
+    public ObservableList<Email> getListSentByName(String user) {
 
         return listSent;
     }
 
-    public ObservableList<Mail> getListDraft() {
+    public ObservableList<Email> getListDraft() {
         return listDraft;
     }
 
-    public ObservableList<Mail> getMailsToNotify() {
+    public ObservableList<Email> getMailsToNotify() {
         return mailsToNotify;
     }
 

@@ -11,17 +11,17 @@ public interface ServerRemote extends Remote {
 
     boolean loadMailbox(String address) throws RemoteException;
 
-    void deleteSent(String address, Mail mail) throws RemoteException;
+    void deleteSent(String address, Email email) throws RemoteException;
 
-    void deleteReceived(String address, Mail mail) throws RemoteException;
+    void deleteReceived(String address, Email email) throws RemoteException;
 
-    void sendMail(Mail mail) throws RemoteException;
+    void sendMail(Email email) throws RemoteException;
 
     boolean checkReceiver(String address) throws RemoteException;
 
-    ArrayList<Mail> getSent(String address) throws RemoteException;
+    ArrayList<Email> getSent(String address) throws RemoteException;
 
-    ArrayList<Mail> getInbox(String address) throws RemoteException;
+    ArrayList<Email> getInbox(String address) throws RemoteException;
 
     ObservableList<Log> getLogs() throws RemoteException;
 
@@ -29,6 +29,6 @@ public interface ServerRemote extends Remote {
 
     void removeMailbox(String address) throws RemoteException;
 
-    Mail notRead(String address) throws RemoteException;
+    Email notRead(String address) throws RemoteException;
 
 }

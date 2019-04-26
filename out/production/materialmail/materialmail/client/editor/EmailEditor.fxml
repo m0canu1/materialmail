@@ -11,7 +11,7 @@
             <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
         </VBox.margin>
     </Label>
-    <TextField fx:id="receiversmail" maxHeight="46.0" prefHeight="35.0" prefWidth="375.0" styleClass="mail-editor-text-field" VBox.vgrow="NEVER">
+    <TextField fx:id="receiversmail" maxHeight="46.0" prefHeight="35.0" prefWidth="375.0" styleClass="email-editor-text-field" VBox.vgrow="NEVER">
         <VBox.margin>
             <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
         </VBox.margin>
@@ -24,7 +24,7 @@
             <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
         </VBox.margin>
     </Label>
-    <TextField fx:id="mailsubject" maxHeight="46.0" prefHeight="35.0" prefWidth="375.0" styleClass="mail-editor-text-field" VBox.vgrow="NEVER">
+    <TextField fx:id="mailsubject" maxHeight="46.0" prefHeight="35.0" prefWidth="375.0" styleClass="email-editor-text-field" VBox.vgrow="NEVER">
         <VBox.margin>
             <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
         </VBox.margin>
@@ -37,7 +37,7 @@
             <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
         </VBox.margin>
     </Label>
-    <TextArea fx:id="bodyfield" styleClass="mail-editor-text-area" wrapText="true" VBox.vgrow="ALWAYS">
+    <TextArea fx:id="bodyfield" styleClass="email-editor-text-area" wrapText="true" VBox.vgrow="ALWAYS">
         <VBox.margin>
             <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
         </VBox.margin>

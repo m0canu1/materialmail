@@ -16,26 +16,69 @@
  */
 package materialmail.server;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import materialmail.core.Log;
+import materialmail.core.ServerRemote;
+
+import java.net.MalformedURLException;
+import java.rmi.Naming;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+
 /**
  * FXML Controller class
  */
 public class ServerController {
-    
-//    @FXML
-//    private TextArea logText;
-//
-//    private ServerModel model;
-//
-//    public void initModel(ServerModel model) {
-//        //Ensure model is only set once
-//        if (this.model != null) {
-//            throw new IllegalStateException("Model can only be initialized once");
-//        }
-//
-//        this.model = model;
-//        model.logProperty().addListener((val, oldVal, newVal) -> {
-//            logText.textProperty().set(newVal);
-//            logText.positionCaret(logText.getLength());
-//        });
-//    }
+
+    ServerRemote serverRemote;
+
+    @FXML
+    private TableView<Log> logTable;
+    @FXML
+    private TableColumn<Log, String> eventColumn;
+    @FXML
+    private TableColumn<Log, String> timestampColumn;
+
+    @FXML
+    public void initialize() {
+        setUpRemote();
+        setUpView();
+    }
+
+    private void setUpView() {
+        try {
+            logTable.setItems(serverRemote.getLogs());
+            eventColumn.setCellValueFactory(cellData -> cellData.getValue().getMessageProperty());
+            timestampColumn.setCellValueFactory(cellData -> cellData.getValue().getTimestampProperty());
+        } catch (RemoteException e) {
+            System.out.println("Connection error.");
+            System.exit(-1);
+        }
+    }
+
+    private void setUpRemote() {
+        try {
+            serverRemote = new ServerModel();
+            //TODO: completa
+            launchRMIRegistry();
+            Naming.rebind("rmi://127.0.0.1:2000/server", serverRemote);
+        } catch (RemoteException e) {
+            System.out.println("Errore di connessione");
+            System.exit(-1);
+        } catch (MalformedURLException e) {
+            System.out.println("Errore nell'URL del server remoto");
+            System.exit(-1);
+        }
+    }
+
+    private void launchRMIRegistry() throws RemoteException {
+        try {
+            LocateRegistry.createRegistry(2000);
+            serverRemote.addLog("E' stato creato il registro RMI");
+        } catch (RemoteException e) {
+            serverRemote.addLog("Il registro RMI esiste già");
+        }
+    }
 }

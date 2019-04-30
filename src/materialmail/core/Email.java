@@ -68,7 +68,7 @@ public class Email implements Serializable {
         return this.hashCode() == o.hashCode();
     }
 
-    public Integer getId() {
+    Integer getId() {
         return id;
     }
 

@@ -4,35 +4,12 @@
     <bookmark url="file://$PROJECT_DIR$/src/materialmail/server/ServerModel.java" line="106" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="dfhiodfghfd">
-      <change afterPath="$PROJECT_DIR$/src/materialmail/core/Email.java" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="added some more code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/materialmail/materialmail/Controller.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/materialmail/materialmail/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/materialmail/materialmail/UILogin.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/materialmail/materialmail/client/editor/EmailEditor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/materialmail/materialmail/client/editor/EmailEditor.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/materialmail/materialmail/client/ui/UI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/materialmail/materialmail/client/ui/UI.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/materialmail/materialmail/client/ui/UIController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/materialmail/materialmail/client/ui/UIController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/materialmail/materialmail/core/EmptyMail.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/materialmail/materialmail/core/Mail.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/materialmail/materialmail/sample.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/materialmail/materialmail/server/Server.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/materialmail/materialmail/server/Server.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/materialmail/materialmail/server/ServerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/materialmail/materialmail/server/ServerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/materialmail/materialmail/server/ServerModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/materialmail/materialmail/server/ServerModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/materialmail/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/materialmail/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/materialmail/UILogin.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/materialmail/client/editor/EmailEditor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/materialmail/client/editor/EmailEditor.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/materialmail/client/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/materialmail/client/model/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/materialmail/client/ui/UI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/materialmail/client/ui/UI.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/materialmail/client/ui/UIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/materialmail/client/ui/UIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/materialmail/core/EmptyMail.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/materialmail/core/Mail.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/materialmail/core/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/materialmail/core/Email.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/materialmail/core/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/materialmail/core/Log.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/materialmail/core/Mailbox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/materialmail/core/Mailbox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/materialmail/core/ServerRemote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/materialmail/core/ServerRemote.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/materialmail/sample.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/materialmail/server/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/materialmail/server/ServerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/materialmail/server/ServerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/materialmail/server/ServerModel.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -98,63 +75,39 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/materialmail/server/ServerModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="639">
-              <caret line="167" column="7" selection-start-line="167" selection-start-column="7" selection-end-line="167" selection-end-column="7" />
+            <state relative-caret-position="612">
+              <caret line="107" column="46" selection-start-line="107" selection-start-column="46" selection-end-line="107" selection-end-column="46" />
               <folding>
                 <element signature="method#ServerModel#0;class#ServerModel#0" />
                 <element signature="method#loadMailBox#0;class#ServerModel#0" />
-                <element signature="e#1301#1339#1" />
-                <element signature="e#1476#1509#1" />
                 <element signature="method#loadMailbox#0;class#ServerModel#0" />
                 <element signature="method#sendMail#0;class#ServerModel#0" />
-                <element signature="e#2095#2125#1" />
                 <element signature="method#deliverMail#0;class#ServerModel#0" />
-                <element signature="e#2326#2372#1" />
                 <element signature="method#getSent#0;class#ServerModel#0" />
                 <element signature="method#getInbox#0;class#ServerModel#0" />
                 <element signature="method#getLogs#0;class#ServerModel#0" />
                 <element signature="docComment;method#writeMail#0;class#ServerModel#0" />
                 <element signature="method#writeMail#0;class#ServerModel#0" />
-                <element signature="e#2798#2936#0" />
-                <element signature="e#2969#3067#0" />
-                <element signature="e#3090#3176#0" />
-                <element signature="method#resetNewMail#0;class#ServerModel#0" />
                 <element signature="method#removeMailbox#0;class#ServerModel#0" />
                 <element signature="method#notRead#0;class#ServerModel#0" />
                 <element signature="method#deleteSent#0;class#ServerModel#0" />
-                <element signature="e#3607#3638#1" />
-                <element signature="e#3725#3758#1" />
                 <element signature="method#deleteReceived#0;class#ServerModel#0" />
-                <element signature="e#4462#4510#1" />
-                <element signature="e#4584#4617#1" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/materialmail/core/Mailbox.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="29" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="789">
+              <caret line="113" column="26" selection-start-line="113" selection-start-column="26" selection-end-line="113" selection-end-column="26" />
               <folding>
                 <element signature="method#readMail#0;class#Mailbox#0" />
-                <element signature="e#1716#1779#1" />
-                <element signature="e#1831#1901#1" />
-                <element signature="e#1952#2030#1" />
-                <element signature="e#899#943#0" />
                 <element signature="method#toString#0;class#Mailbox#0" />
-                <element signature="e#2650#2680#1" />
-                <element signature="e#2815#2846#1" />
                 <element signature="docComment;method#deleteSent#0;class#Mailbox#0" />
-                <element signature="method#deleteSent#0;class#Mailbox#0" />
-                <element signature="e#3814#3911#1" />
                 <element signature="method#deleteReceived#0;class#Mailbox#0" />
-                <element signature="e#4152#4181#1" />
                 <element signature="method#writeMail#0;class#Mailbox#0" />
-                <element signature="e#4138#4356#0" />
-                <element signature="e#4249#4322#1" />
-                <element signature="e#4379#4423#0" />
               </folding>
             </state>
           </provider>
@@ -163,7 +116,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/materialmail/core/ServerRemote.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="517">
+            <state relative-caret-position="459">
               <caret line="31" column="57" selection-start-line="31" selection-start-column="57" selection-end-line="31" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -173,9 +126,18 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/materialmail/core/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="36" column="20" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/materialmail/server/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
+            <state relative-caret-position="272">
               <caret line="20" column="48" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -187,9 +149,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/materialmail/server/Server.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/materialmail/client/login/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
+            <state relative-caret-position="799">
               <caret line="95" column="10" selection-start-line="95" selection-start-column="10" selection-end-line="95" selection-end-column="10" />
               <folding>
                 <element signature="method#handleSignup#0;class#LoginController#0" />
@@ -200,15 +172,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/materialmail/server/ServerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="64" column="31" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="31" />
+            <state relative-caret-position="187">
+              <caret line="35" selection-start-line="35" selection-end-line="35" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#setUpView#0;class#ServerController#0" />
-                <element signature="method#launcRMIRegistry#0;class#ServerController#0" />
               </folding>
             </state>
           </provider>
@@ -217,14 +188,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/materialmail/core/Email.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="45" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
+            <state relative-caret-position="1530">
+              <caret line="118" selection-start-line="118" selection-end-line="118" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1755#1756#0" expanded="true" />
-                <element signature="e#1786#1787#0" expanded="true" />
-                <element signature="e#2174#2175#0" expanded="true" />
-                <element signature="e#2201#2202#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -233,24 +200,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/materialmail/core/Log.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+            <state relative-caret-position="323">
+              <caret line="24" column="56" selection-start-line="24" selection-start-column="56" selection-end-line="24" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#441#442#0" expanded="true" />
-                <element signature="e#481#482#0" expanded="true" />
-                <element signature="e#599#600#0" expanded="true" />
-                <element signature="e#641#642#0" expanded="true" />
+                <element signature="e#629#630#0" expanded="true" />
+                <element signature="e#692#693#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/emails/alex@matmail.com/sent.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="59" selection-start-column="59" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -323,12 +279,13 @@
         <option value="$PROJECT_DIR$/src/materialmail/client/model/Model.java" />
         <option value="$PROJECT_DIR$/src/materialmail/core/ServerRemote.java" />
         <option value="$PROJECT_DIR$/src/materialmail/server/Server.fxml" />
-        <option value="$PROJECT_DIR$/src/materialmail/core/Log.java" />
         <option value="$PROJECT_DIR$/src/materialmail/Controller.java" />
         <option value="$PROJECT_DIR$/src/materialmail/core/Mail.java" />
         <option value="$PROJECT_DIR$/src/materialmail/server/ServerModel.java" />
-        <option value="$PROJECT_DIR$/src/materialmail/core/Mailbox.java" />
         <option value="$PROJECT_DIR$/src/materialmail/server/ServerController.java" />
+        <option value="$PROJECT_DIR$/src/materialmail/core/Mailbox.java" />
+        <option value="$PROJECT_DIR$/src/materialmail/core/Email.java" />
+        <option value="$PROJECT_DIR$/src/materialmail/core/Log.java" />
       </list>
     </option>
   </component>
@@ -348,7 +305,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -372,14 +328,15 @@
               <item name="materialmail" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="materialmail" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="materialmail" type="b2602c69:ProjectViewProjectNode" />
               <item name="materialmail" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="materialmail" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="materialmail" type="b2602c69:ProjectViewProjectNode" />
@@ -396,6 +353,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -415,7 +373,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../programmazione3_emailator-master" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -588,7 +546,12 @@
       <workItem from="1556207504916" duration="8651000" />
       <workItem from="1556220111213" duration="6980000" />
       <workItem from="1556228510812" duration="18000" />
-      <workItem from="1556274903889" duration="12125000" />
+      <workItem from="1556274903889" duration="13122000" />
+      <workItem from="1556554561056" duration="17000" />
+      <workItem from="1556554601552" duration="53000" />
+      <workItem from="1556554662744" duration="6000" />
+      <workItem from="1556554694730" duration="597000" />
+      <workItem from="1556640073558" duration="314000" />
     </task>
     <task id="LOCAL-00001" summary="dfhiodfghfd">
       <created>1556289537901</created>
@@ -597,11 +560,18 @@
       <option name="project" value="LOCAL" />
       <updated>1556289537901</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added some more code">
+      <created>1556298562101</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1556298562101</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53399000" />
+    <option name="totallyTimeSpent" value="55383000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -616,7 +586,7 @@
     <frame x="-7" y="0" width="930" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.16935484" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.33525345" />
       <window_info id="Structure" order="1" weight="0.2497332" />
       <window_info id="Favorites" order="2" weight="0.32977587" />
       <window_info id="Designer" order="3" />
@@ -628,7 +598,7 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" visible="true" weight="0.3295711" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3295711" />
       <window_info anchor="bottom" id="Application Servers" order="7" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Problems" order="9" />
@@ -657,7 +627,8 @@
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <MESSAGE value="dfhiodfghfd" />
-    <option name="LAST_COMMIT_MESSAGE" value="dfhiodfghfd" />
+    <MESSAGE value="added some more code" />
+    <option name="LAST_COMMIT_MESSAGE" value="added some more code" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -679,21 +650,8 @@
     <entry file="jar://$PATH_TO_FX$/javafx.graphics.jar!/com/sun/javafx/application/PlatformImpl.class" />
     <entry file="jar://$PATH_TO_FX$/javafx.fxml.jar!/javafx/fxml/FXMLLoader.class" />
     <entry file="jar://$PATH_TO_FX$/javafx.graphics.jar!/com/sun/glass/ui/win/WinApplication.class" />
-    <entry file="file://$PROJECT_DIR$/src/materialmail/sample.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/emails/alex@matmail.com/sent/3.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="1" selection-start-column="1" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/materialmail/sample.fxml" />
+    <entry file="file://$PROJECT_DIR$/emails/alex@matmail.com/sent/3.txt" />
     <entry file="file://$PROJECT_DIR$/src/materialmail/core/UserList.java" />
     <entry file="file://$PROJECT_DIR$/emails/users.txt">
       <provider selected="true" editor-type-id="text-editor">
@@ -703,12 +661,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/materialmail/client/editor/EmailEditor.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor">
         <state relative-caret-position="1200">
           <caret line="60" column="29" selection-start-line="60" selection-start-column="29" selection-end-line="60" selection-end-column="29" />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="jar://$PATH_TO_FX$/javafx.base.jar!/javafx/collections/ObservableList.class" />
     <entry file="jar://$PATH_TO_FX$/javafx.graphics.jar!/javafx/scene/Scene.class" />
@@ -723,46 +681,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/materialmail/UILogin.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/materialmail/UILogin.fxml" />
     <entry file="jar://$PATH_TO_FX$/javafx.base.jar!/javafx/beans/property/StringPropertyBase.class" />
     <entry file="jar://$PATH_TO_FX$/javafx.base.jar!/javafx/beans/InvalidationListener.class" />
     <entry file="file://$PROJECT_DIR$/src/materialmail/client/ui/UI.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="46" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="46" />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/materialmail/core/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="36" column="20" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/materialmail/client/login/login.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor">
         <state relative-caret-position="544">
           <caret line="32" column="35" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/emails/alex@matmail.com/sent/4.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="1" selection-start-column="1" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/emails/alex@matmail.com/sent/4.txt" />
     <entry file="file://$PROJECT_DIR$/src/materialmail/client/ui/UIController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="884">
@@ -773,13 +711,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/emails/alex@matmail.com/sent/2.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="1" selection-start-column="1" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/emails/alex@matmail.com/sent/2.txt" />
     <entry file="file://$PROJECT_DIR$/src/materialmail/client/model/Model.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="789">
@@ -817,119 +749,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/materialmail/core/Log.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#441#442#0" expanded="true" />
-            <element signature="e#481#482#0" expanded="true" />
-            <element signature="e#599#600#0" expanded="true" />
-            <element signature="e#641#642#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/materialmail/core/Email.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="45" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1755#1756#0" expanded="true" />
-            <element signature="e#1786#1787#0" expanded="true" />
-            <element signature="e#2174#2175#0" expanded="true" />
-            <element signature="e#2201#2202#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/materialmail/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="56" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="85" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/materialmail/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="605">
-          <caret line="41" column="23" lean-forward="true" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/materialmail/server/Server.fxml">
-      <provider selected="true" editor-type-id="text-editor" />
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/materialmail/Main.java" />
+    <entry file="file://$PROJECT_DIR$/src/materialmail/Controller.java" />
+    <entry file="file://$PROJECT_DIR$/src/materialmail/core/EmptyEmail.java" />
     <entry file="file://$PROJECT_DIR$/src/materialmail/server/ServerModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="639">
-          <caret line="167" column="7" selection-start-line="167" selection-start-column="7" selection-end-line="167" selection-end-column="7" />
+        <state relative-caret-position="612">
+          <caret line="107" column="46" selection-start-line="107" selection-start-column="46" selection-end-line="107" selection-end-column="46" />
           <folding>
             <element signature="method#ServerModel#0;class#ServerModel#0" />
             <element signature="method#loadMailBox#0;class#ServerModel#0" />
-            <element signature="e#1301#1339#1" />
-            <element signature="e#1476#1509#1" />
             <element signature="method#loadMailbox#0;class#ServerModel#0" />
             <element signature="method#sendMail#0;class#ServerModel#0" />
-            <element signature="e#2095#2125#1" />
             <element signature="method#deliverMail#0;class#ServerModel#0" />
-            <element signature="e#2326#2372#1" />
             <element signature="method#getSent#0;class#ServerModel#0" />
             <element signature="method#getInbox#0;class#ServerModel#0" />
             <element signature="method#getLogs#0;class#ServerModel#0" />
             <element signature="docComment;method#writeMail#0;class#ServerModel#0" />
             <element signature="method#writeMail#0;class#ServerModel#0" />
-            <element signature="e#2798#2936#0" />
-            <element signature="e#2969#3067#0" />
-            <element signature="e#3090#3176#0" />
-            <element signature="method#resetNewMail#0;class#ServerModel#0" />
             <element signature="method#removeMailbox#0;class#ServerModel#0" />
             <element signature="method#notRead#0;class#ServerModel#0" />
             <element signature="method#deleteSent#0;class#ServerModel#0" />
-            <element signature="e#3607#3638#1" />
-            <element signature="e#3725#3758#1" />
             <element signature="method#deleteReceived#0;class#ServerModel#0" />
-            <element signature="e#4462#4510#1" />
-            <element signature="e#4584#4617#1" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/materialmail/core/EmptyEmail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="7" />
-          <folding>
-            <element signature="e#92#93#0" expanded="true" />
-            <element signature="e#149#150#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/materialmail/client/login/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="95" column="10" selection-start-line="95" selection-start-column="10" selection-end-line="95" selection-end-column="10" />
-          <folding>
-            <element signature="method#handleSignup#0;class#LoginController#0" />
-            <element signature="method#spawnHome#0;class#LoginController#0" />
-            <element signature="method#showError#0;class#LoginController#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/materialmail/core/ServerRemote.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
+        <state relative-caret-position="459">
           <caret line="31" column="57" selection-start-line="31" selection-start-column="57" selection-end-line="31" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -937,35 +785,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/materialmail/core/Mailbox.java">
+    <entry file="file://$PROJECT_DIR$/src/materialmail/core/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-          <folding>
-            <element signature="method#readMail#0;class#Mailbox#0" />
-            <element signature="e#1716#1779#1" />
-            <element signature="e#1831#1901#1" />
-            <element signature="e#1952#2030#1" />
-            <element signature="e#899#943#0" />
-            <element signature="method#toString#0;class#Mailbox#0" />
-            <element signature="e#2650#2680#1" />
-            <element signature="e#2815#2846#1" />
-            <element signature="docComment;method#deleteSent#0;class#Mailbox#0" />
-            <element signature="method#deleteSent#0;class#Mailbox#0" />
-            <element signature="e#3814#3911#1" />
-            <element signature="method#deleteReceived#0;class#Mailbox#0" />
-            <element signature="e#4152#4181#1" />
-            <element signature="method#writeMail#0;class#Mailbox#0" />
-            <element signature="e#4138#4356#0" />
-            <element signature="e#4249#4322#1" />
-            <element signature="e#4379#4423#0" />
-          </folding>
+        <state relative-caret-position="476">
+          <caret line="36" column="20" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/materialmail/server/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
+        <state relative-caret-position="272">
           <caret line="20" column="48" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -975,14 +804,69 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/materialmail/server/Server.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/materialmail/client/login/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="95" column="10" selection-start-line="95" selection-start-column="10" selection-end-line="95" selection-end-column="10" />
+          <folding>
+            <element signature="method#handleSignup#0;class#LoginController#0" />
+            <element signature="method#spawnHome#0;class#LoginController#0" />
+            <element signature="method#showError#0;class#LoginController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/materialmail/server/ServerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="64" column="31" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="31" />
+        <state relative-caret-position="187">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#setUpView#0;class#ServerController#0" />
-            <element signature="method#launcRMIRegistry#0;class#ServerController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/materialmail/core/Email.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1530">
+          <caret line="118" selection-start-line="118" selection-end-line="118" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/materialmail/core/Log.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="24" column="56" selection-start-line="24" selection-start-column="56" selection-end-line="24" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#629#630#0" expanded="true" />
+            <element signature="e#692#693#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/materialmail/core/Mailbox.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="789">
+          <caret line="113" column="26" selection-start-line="113" selection-start-column="26" selection-end-line="113" selection-end-column="26" />
+          <folding>
+            <element signature="method#readMail#0;class#Mailbox#0" />
+            <element signature="method#toString#0;class#Mailbox#0" />
+            <element signature="docComment;method#deleteSent#0;class#Mailbox#0" />
+            <element signature="method#deleteReceived#0;class#Mailbox#0" />
+            <element signature="method#writeMail#0;class#Mailbox#0" />
           </folding>
         </state>
       </provider>

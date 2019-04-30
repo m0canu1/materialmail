@@ -28,7 +28,7 @@ public class Mailbox implements Serializable {
         readMail("../../emails" + address + "/inbox.txt", this.inbox);
     }
 
-    public void readMail(String filepath, ArrayList<Email> email) {
+    private void readMail(String filepath, ArrayList<Email> email) {
         try {
             scanner1 = new Scanner(new File(filepath));
             while (scanner1.hasNextLine()) {
@@ -83,7 +83,7 @@ public class Mailbox implements Serializable {
         this.address = address;
     }
 
-    public int getCounter() {
+    private int getCounter() {
         return counter;
     }
 

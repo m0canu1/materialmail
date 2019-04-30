@@ -22,8 +22,7 @@ public class Log {
     }
 
     public StringProperty getTimestampProperty() {
-        StringProperty spTimestamp = new SimpleStringProperty(this.timestamp);
-        return spTimestamp;
+        return new SimpleStringProperty(this.timestamp);
     }
 
     public void setMessagge(String message) {

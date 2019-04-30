@@ -32,7 +32,7 @@ import java.rmi.registry.LocateRegistry;
  */
 public class ServerController {
 
-    ServerRemote serverRemote;
+    private ServerRemote serverRemote;
 
     @FXML
     private TableView<Log> logTable;

@@ -80,6 +80,12 @@ public class ServerModel extends UnicastRemoteObject implements ServerRemote {
         return getMailBoxForAddress(address).getInbox();
     }
 
+    /**
+     *
+     * @return un oggetto Observable che segnala il proprio cambiamento ad ogni modifica
+     * e, la classe che lo ha chiesto, aggiornerà i dati ad ogni modifica subita dall'oggetto
+     * @throws RemoteException
+     */
     @Override
     public ObservableList<Log> getLogs() throws RemoteException {
         return this.logs;

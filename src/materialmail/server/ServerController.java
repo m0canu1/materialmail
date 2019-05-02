@@ -49,7 +49,7 @@ public class ServerController {
 
     private void setUpView() {
         try {
-            logTable.setItems(serverRemote.getLogs());
+            logTable.setItems(serverRemote.getLogs()); //aggiunge gli elementi (già esistenti)al log table
             eventColumn.setCellValueFactory(cellData -> cellData.getValue().getMessageProperty());
             timestampColumn.setCellValueFactory(cellData -> cellData.getValue().getTimestampProperty());
         } catch (RemoteException e) {

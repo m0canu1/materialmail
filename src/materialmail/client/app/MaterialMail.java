@@ -15,7 +15,7 @@ public class MaterialMail extends Application {
     public void start(Stage primaryStage) throws Exception {
         primaryStage.initStyle(StageStyle.TRANSPARENT); //elimina la barra del titolo
 //        Parent root = FXMLLoader.load(getClass().getResource("../login/login.fxml"));
-        Parent root = FXMLLoader.load(getClass().getResource("../login/LoginView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../ui/UI.fxml"));
 
         Scene scene = new Scene(root);
         scene.setFill(Color.TRANSPARENT); //rende gli angoli trasparenti

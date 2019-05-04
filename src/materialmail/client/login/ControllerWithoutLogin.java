@@ -48,7 +48,7 @@ public class ControllerWithoutLogin {
         try {
             //Casting perché restituisce un java.rmi.Remote
             serverRemote = (ServerRemote) Naming.lookup(
-                    "rmi://127.0.0.1:2000/mocanu");
+                    "rmi://127.0.0.1:2000/server");
             if (choose_email.getSelectionModel().isEmpty()) { //metodi dell'oggetto ComboBox
                 //todo alertutility
                 System.out.println("Selezione il tuo indirizzo email");
@@ -56,8 +56,8 @@ public class ControllerWithoutLogin {
                 String address = (String) choose_email.getSelectionModel().getSelectedItem();
                 clientModel.setServerRemote(serverRemote); //imposta il server remoto per il model del client
                 clientModel.setAddress(address);
-                if (clientModel.setMailBox()) { //verifica se è riuscito a settare la mailbox
-                    serverRemote.addLog(address + "si è connesso");
+                if (clientModel.setMailbox()) { //verifica se è riuscito a settare la mailbox
+                    serverRemote.addLog(address + " si è connesso");
                     showMailboxView(event);
                 } else {
                     //todo alertUtility

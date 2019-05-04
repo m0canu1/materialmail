@@ -47,21 +47,16 @@ public class ServerController {
     }
 
     private void setUpView() {
-        try {
-            logTable.setItems(serverModel.getLogs()); //aggiunge gli elementi (già esistenti)al log table
-            eventColumn.setCellValueFactory(cellData -> cellData.getValue().getMessageProperty());
-            timestampColumn.setCellValueFactory(cellData -> cellData.getValue().getTimestampProperty());
-        } catch (RemoteException e) {
-            System.out.println("Connection error.");
-            System.exit(-1);
-        }
+        logTable.setItems(serverModel.getLogs()); //aggiunge gli elementi (già esistenti)al log table
+        eventColumn.setCellValueFactory(cellData -> cellData.getValue().getMessageProperty());
+        timestampColumn.setCellValueFactory(cellData -> cellData.getValue().getTimestampProperty());
     }
 
     private void setUpRemote() {
         try {
             serverModel = new ServerModel();
             launchRMIRegistry();
-            Naming.rebind("rmi://127.0.0.1:2000/mocanu", serverModel);
+            Naming.rebind("rmi://127.0.0.1:2000/server", serverModel);
             System.out.println("\nServer " + serverModel);
         } catch (RemoteException e) {
             System.out.println("Errore di connessione");

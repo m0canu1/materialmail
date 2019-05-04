@@ -40,10 +40,11 @@ public class ServerModel extends UnicastRemoteObject implements ServerRemote {
         this.logs = FXCollections.observableArrayList();
     }
 
-    public boolean loadMailBox(String address) {
+    @Override
+    public boolean loadMailbox(String address) {
         if (getMailBoxForAddress(address) == null) {
             this.mailboxes.add(new Mailbox(address));
-            addLog("La casella postate di " + address + " è stata caricata.");
+            addLog("La casella postale di " + address + " è stata caricata");
             return true;
         } else {
             addLog("Un altro utente ha cercato di connettersi all'account di " + address);
@@ -53,11 +54,6 @@ public class ServerModel extends UnicastRemoteObject implements ServerRemote {
 
     public void addLog(String event) {
         logs.add(new Log(event));
-    }
-
-    @Override
-    public boolean loadMailbox(String address) throws RemoteException {
-        return false;
     }
 
     public void sendMail(Email email) {
@@ -76,30 +72,8 @@ public class ServerModel extends UnicastRemoteObject implements ServerRemote {
             getMailBoxForAddress(receiver).incrCounter();
             getMailBoxForAddress(receiver).getInbox().add(email);
             addLog(receiver + " ha ricevuto una mail.");
-
         }
         writeMail("../../emails" + receiver + "/inbox.txt", email);
-    }
-
-    @Override
-    public ArrayList<Email> getSent(String address) throws RemoteException {
-        return getMailBoxForAddress(address).getSent();
-    }
-
-    @Override
-    public ArrayList<Email> getInbox(String address) throws RemoteException {
-        return getMailBoxForAddress(address).getInbox();
-    }
-
-    /**
-     *
-     * @return un oggetto Observable che segnala il proprio cambiamento ad ogni modifica
-     * e, la classe che lo ha chiesto, aggiornerà i dati ad ogni modifica subita dall'oggetto
-     * @throws RemoteException
-     */
-    @Override
-    public ObservableList<Log> getLogs() throws RemoteException {
-        return this.logs;
     }
 
     /**
@@ -127,15 +101,22 @@ public class ServerModel extends UnicastRemoteObject implements ServerRemote {
     }
 
     @Override
-    public void removeMailbox(String address) throws RemoteException {
+    public void removeMailbox(String address) {
+
+
+        mailboxes.removeIf(m -> (m.getAddress().equals(address)));
+
+
         for (int i = 0; i < mailboxes.size(); i++) {
             if (mailboxes.get(i).getAddress().equals(address))
                 mailboxes.remove(i);
         }
+
+
     }
 
     @Override
-    public Email notRead(String address) throws RemoteException {
+    public Email notRead(String address) {
         Mailbox tmp = getMailBoxForAddress(address);
         if (tmp != null) {
             return tmp.getNewEmail();
@@ -158,11 +139,11 @@ public class ServerModel extends UnicastRemoteObject implements ServerRemote {
     }
 
     @Override
-    public void deleteReceived(String address, Email email) throws RemoteException {
+    public void deleteReceived(String address, Email email) {
         Mailbox tmp = getMailBoxForAddress(address);
         if (tmp != null) {
             tmp.deleteReceived(email);
-            addLog(address + " ha cancellato una mail ricevuta");
+            addLog(address + " ha cancellato una mail ricevuta.");
         } else {
             addLog("Errore imprevisto.");
             System.exit(-1);
@@ -170,10 +151,9 @@ public class ServerModel extends UnicastRemoteObject implements ServerRemote {
     }
 
     private Mailbox getMailBoxForAddress(String address) {
-        for (Mailbox mailbox : mailboxes) { //per ogni elemento Mailbox in mailboxes esegui
-            if (mailbox.getAddress().equals(address)) {
+        for (Mailbox mailbox : mailboxes) {
+            if (mailbox.getAddress().equals(address))
                 return mailbox;
-            }
         }
         return null;
     }
@@ -189,5 +169,26 @@ public class ServerModel extends UnicastRemoteObject implements ServerRemote {
                 return true;
         }
         return false;
+    }
+
+    @Override
+    public ArrayList<Email> getSent(String address) {
+        return getMailBoxForAddress(address).getSent();
+    }
+
+    @Override
+    public ArrayList<Email> getInbox(String address) {
+        return getMailBoxForAddress(address).getInbox();
+    }
+
+    /**
+     *
+     * @return un oggetto Observable che segnala il proprio cambiamento ad ogni modifica
+     * e, la classe che lo ha chiesto, aggiornerà i dati ad ogni modifica subita dall'oggetto
+     * @throws RemoteException
+     */
+    @Override
+    public ObservableList<Log> getLogs() {
+        return this.logs;
     }
 }

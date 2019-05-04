@@ -1,24 +1,28 @@
 package materialmail.client.ui;
 
+import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import materialmail.client.model.ClientModel;
 import materialmail.core.Email;
+import materialmail.core.ServerRemote;
 
-import java.net.URL;
-import java.util.ResourceBundle;
+import java.rmi.RemoteException;
 
-public class UIController implements Initializable {
+public class UIController {
 
     private Stage stage;
+    private ClientModel clientModel;
+    private ServerRemote serverRemote;
 
 //    private final String currentUser = ClientModel.getModel().getCurrentUser().getUsername();
     private final String currentUser = "alex@matmail.com";
 
     @FXML
-    private Label fromLabel, toLabel, subjectLabel, usernameLabel;
+    private Label fromLabel, toLabel, objLabel, usernameLabel;
 
     @FXML
     private Button newMailButton, sendButton, modifyButton, forwardButton, replyButton, replyAllButton, deleteButton;
@@ -37,16 +41,15 @@ public class UIController implements Initializable {
     @FXML
     private VBox noMailBox, mailBox;
 
+    public void initialize(ServerRemote serverRemote, ClientModel clientModel) {
 
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        usernameLabel.setText(currentUser); //imposto il label con il nome dell'utente loggato
+//        usernameLabel.setText(currentUser); //imposto il label con il nome dell'utente loggato
 
 //        ClientModel.getModel().currentMailProperty().addListener();
 
         clearAllSelections();
-        initializeLists();
+        initializeLists(serverRemote, clientModel);
     }
 
     private void clearAllSelections() {
@@ -56,22 +59,80 @@ public class UIController implements Initializable {
     }
 
 
-    private void initializeLists() {
-//        listsent.setItems(ClientModel.getModel().getListSent());
-//        listsent.setItems(ClientModel.getModel().getListSentByName(currentUser));
-//        listsent.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-//        listsent.getSelectionModel().selectedIndexProperty().addListener((obsValue, oldValue, newValue) -> {
-//            int newindex = (int) newValue;
-//
-//            if (!listsent.getSelectionModel().isEmpty() && newindex >= 0) {
-//                System.out.println("New mail selected from sent list");
-////                sentTabShow();
-//                ClientModel.getModel().setCurrentMail(ClientModel.getModel().getSentMailByIndex(newindex));
-//            }
-//        });
+    private void initializeLists(ServerRemote serverRemote, ClientModel clientModel) {
+        this.serverRemote = serverRemote;
+        this.clientModel = clientModel;
 
-//        listdraft.setItems(ClientModel.getModel().getListDraft());
-//        listinbox.setItems(ClientModel.getModel().getListInbox());
+        listsent.setItems(clientModel.getInbox());
+        listsent.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+
+        listinbox.setItems(clientModel.getInbox());
+        listinbox.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+
+        //TODO: creare le bozze
+
+        showEmailDetails(null);
+        listsent.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showEmailDetails(newValue));
+        listinbox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showEmailDetails(newValue));
+
+        Thread syncMail = new Thread(new CheckMail());
+        syncMail.setDaemon(true);
+        syncMail.start();
+    }
+
+    private void showEmailDetails(Email email) {
+        if (email != null) {
+            fromLabel.setText(email.getSender());
+            toLabel.setText(email.getReceiver().toString());
+            objLabel.setText(email.getObject());
+            //TODO: da verificare questi due
+            maildate.setText(email.getDate());
+            mailcontent.setText(email.getText());
+        }
+//        else {
+//            fromLabel.setText();
+//            toLabel.setText();
+//            objLabel.setText();
+//            //TODO: da verificare questi due
+//            maildate.setText();
+//            mailcontent.setText();
+//        }
+    }
+
+    class CheckMail extends Task {
+        Email nuova = null;
+        public Void call() {
+            while (true) {
+                try {
+                    Thread.sleep(5000);
+                    nuova = serverRemote.notRead(clientModel.getAddress());
+                    if (nuova != null) {
+                        Platform.runLater(() -> {
+                            System.out.println("È arrivata una nuova email.");
+//                            AlertUtility.alertInfo("È arrivata una nuova email.");
+                        });
+                        synchronized (clientModel){
+                            clientModel.getInbox().add(nuova);
+                        }
+                        synchronized (serverRemote) {
+                            serverRemote.resetNewMail(clientModel.getAddress());
+                        }
+                        nuova = null;
+                    }
+                } catch (RemoteException e) {
+                    Platform.runLater(() -> {
+                        System.out.println("Impossibile connettersi al server.");
+//                        AlertUtility.alertError("Impossibile connettersi al server.");
+                    });
+                } catch (InterruptedException e) {
+                    Platform.runLater(() -> {
+                        System.out.println("Malfunzionamento del thread.");
+//                        AlertUtility.alertError("Malfunzionamento del thread.");
+                        System.exit(-1);
+                    });
+                }
+            }
+        }
     }
 
     public void setStage(Stage stage) {

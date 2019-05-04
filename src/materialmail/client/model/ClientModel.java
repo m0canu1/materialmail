@@ -4,13 +4,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import materialmail.core.Email;
 import materialmail.core.ServerRemote;
-import materialmail.server.ServerModel;
 
 import java.rmi.RemoteException;
 
 public class ClientModel {
     private String address;
-    private ServerRemote serverRemote;
+    private ServerRemote serverRemote; //ServerRemote interface
     private ObservableList<Email> sent;
     private ObservableList<Email> inbox;
 
@@ -19,13 +18,24 @@ public class ClientModel {
         inbox = FXCollections.observableArrayList();
     }
 
-    public boolean setMailBox() throws RemoteException {
-        if (serverRemote.loadMailbox(this.address)) {
-            sent.addAll(serverRemote.getSent(this.address));
-            inbox.addAll(serverRemote.getInbox(this.address));
+//    public boolean setMailbox() throws RemoteException {
+//        if (serverRemote.loadMailbox(getAddress())) {
+//            sent.addAll(serverRemote.getSent(getAddress()));
+//            inbox.addAll(serverRemote.getInbox(getAddress()));
+//            return true;
+//        } else
+//            return false;
+//    }
+    public boolean setMailbox() throws RemoteException {
+        if (serverRemote.loadMailbox(getAddress())) {
+            sent.addAll(serverRemote.getSent(getAddress()));
+            inbox.addAll(serverRemote.getInbox(getAddress()));
             return true;
-        } else
-            return false;
+        } else return true;
+    }
+
+    public void setServerRemote(ServerRemote serverRemote) {
+        this.serverRemote = serverRemote;
     }
 
     public String getAddress() {
@@ -40,24 +50,12 @@ public class ClientModel {
         return serverRemote;
     }
 
-    public void setServerRemote(ServerRemote serverRemote) {
-        this.serverRemote = serverRemote;
-    }
-
     public ObservableList<Email> getSent() {
         return sent;
     }
 
-    public void setSent(ObservableList<Email> sent) {
-        this.sent = sent;
-    }
-
     public ObservableList<Email> getInbox() {
         return inbox;
-    }
-
-    public void setInbox(ObservableList<Email> inbox) {
-        this.inbox = inbox;
     }
 }
 

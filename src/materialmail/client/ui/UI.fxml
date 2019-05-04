@@ -137,7 +137,7 @@
                             <Bloom threshold="0.0" />
                         </effect>
                     </Separator>
-                    <Label fx:id="subjectLabel" prefHeight="43.0" prefWidth="444.0" styleClass="object-text-area" text="Subject" VBox.vgrow="NEVER">
+                    <Label fx:id="objLabel" prefHeight="43.0" prefWidth="444.0" styleClass="object-text-area" text="Subject" VBox.vgrow="NEVER">
                         <padding>
                             <Insets left="10.0" top="10.0" />
                         </padding>

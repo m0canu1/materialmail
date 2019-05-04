@@ -5,7 +5,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import materialmail.client.model.Model;
 import materialmail.core.Email;
 
 import java.net.URL;
@@ -15,7 +14,7 @@ public class UIController implements Initializable {
 
     private Stage stage;
 
-//    private final String currentUser = Model.getModel().getCurrentUser().getUsername();
+//    private final String currentUser = ClientModel.getModel().getCurrentUser().getUsername();
     private final String currentUser = "alex@matmail.com";
 
     @FXML
@@ -44,7 +43,7 @@ public class UIController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         usernameLabel.setText(currentUser); //imposto il label con il nome dell'utente loggato
 
-//        Model.getModel().currentMailProperty().addListener();
+//        ClientModel.getModel().currentMailProperty().addListener();
 
         clearAllSelections();
         initializeLists();
@@ -58,8 +57,8 @@ public class UIController implements Initializable {
 
 
     private void initializeLists() {
-//        listsent.setItems(Model.getModel().getListSent());
-        listsent.setItems(Model.getModel().getListSentByName(currentUser));
+//        listsent.setItems(ClientModel.getModel().getListSent());
+//        listsent.setItems(ClientModel.getModel().getListSentByName(currentUser));
 //        listsent.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 //        listsent.getSelectionModel().selectedIndexProperty().addListener((obsValue, oldValue, newValue) -> {
 //            int newindex = (int) newValue;
@@ -67,12 +66,12 @@ public class UIController implements Initializable {
 //            if (!listsent.getSelectionModel().isEmpty() && newindex >= 0) {
 //                System.out.println("New mail selected from sent list");
 ////                sentTabShow();
-//                Model.getModel().setCurrentMail(Model.getModel().getSentMailByIndex(newindex));
+//                ClientModel.getModel().setCurrentMail(ClientModel.getModel().getSentMailByIndex(newindex));
 //            }
 //        });
 
-        listdraft.setItems(Model.getModel().getListDraft());
-        listinbox.setItems(Model.getModel().getListInbox());
+//        listdraft.setItems(ClientModel.getModel().getListDraft());
+//        listinbox.setItems(ClientModel.getModel().getListInbox());
     }
 
     public void setStage(Stage stage) {

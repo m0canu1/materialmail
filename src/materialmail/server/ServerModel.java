@@ -14,6 +14,17 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
+
+/**
+ * La classe del server (ServerModel) che realizza l'oggetto remoto
+ * deve avere le seguenti caratteristiche:
+ * Deve implementare l'interfaccia (ServerRemote).
+ * Deve estendere la classe java.rmi.server.UnicastRemoteObject.
+ * Questo serve per creare le infrastrutture per comunicare attraverso la
+ * rete.
+ * Il costruttore deve lanciare l'eccezione java.rmi.RemoteException.
+ */
+
 public class ServerModel extends UnicastRemoteObject implements ServerRemote {
 
     private ArrayList<String> addresses;

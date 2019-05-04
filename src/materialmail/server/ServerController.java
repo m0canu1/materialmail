@@ -20,7 +20,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import materialmail.core.Log;
-import materialmail.core.ServerRemote;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;
@@ -32,7 +31,7 @@ import java.rmi.registry.LocateRegistry;
  */
 public class ServerController {
 
-    private ServerRemote serverRemote;
+    private ServerModel serverModel;
 
     @FXML
     private TableView<Log> logTable;
@@ -49,7 +48,7 @@ public class ServerController {
 
     private void setUpView() {
         try {
-            logTable.setItems(serverRemote.getLogs()); //aggiunge gli elementi (già esistenti)al log table
+            logTable.setItems(serverModel.getLogs()); //aggiunge gli elementi (già esistenti)al log table
             eventColumn.setCellValueFactory(cellData -> cellData.getValue().getMessageProperty());
             timestampColumn.setCellValueFactory(cellData -> cellData.getValue().getTimestampProperty());
         } catch (RemoteException e) {
@@ -60,10 +59,10 @@ public class ServerController {
 
     private void setUpRemote() {
         try {
-            serverRemote = new ServerModel();
-            //TODO: completa
+            serverModel = new ServerModel();
             launchRMIRegistry();
-            Naming.rebind("rmi://127.0.0.1:2000/server", serverRemote);
+            Naming.rebind("rmi://127.0.0.1:2000/mocanu", serverModel);
+            System.out.println("\nServer " + serverModel);
         } catch (RemoteException e) {
             System.out.println("Errore di connessione");
             System.exit(-1);
@@ -76,9 +75,9 @@ public class ServerController {
     private void launchRMIRegistry() throws RemoteException {
         try {
             LocateRegistry.createRegistry(2000);
-            serverRemote.addLog("E' stato creato il registro RMI");
+            serverModel.addLog("E' stato creato il registro RMI");
         } catch (RemoteException e) {
-            serverRemote.addLog("Il registro RMI esiste già");
+            serverModel.addLog("Il registro RMI esiste già");
         }
     }
 }

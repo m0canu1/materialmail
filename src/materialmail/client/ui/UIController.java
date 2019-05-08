@@ -18,7 +18,7 @@ public class UIController {
     private ClientModel clientModel;
     private ServerRemote serverRemote;
 
-//    private final String currentUser = ClientModel.getModel().getCurrentUser().getUsername();
+    //    private final String currentUser = ClientModel.getModel().getCurrentUser().getUsername();
     private final String currentUser = "alex@matmail.com";
 
     @FXML
@@ -41,15 +41,15 @@ public class UIController {
     @FXML
     private VBox noMailBox, mailBox;
 
+
     public void initialize(ServerRemote serverRemote, ClientModel clientModel) {
 
+        this.serverRemote = serverRemote;
+        this.clientModel = clientModel;
 
-//        usernameLabel.setText(currentUser); //imposto il label con il nome dell'utente loggato
-
-//        ClientModel.getModel().currentMailProperty().addListener();
-
-        clearAllSelections();
-        initializeLists(serverRemote, clientModel);
+//        clearAllSelections();
+        usernameLabel.setText(this.clientModel.getAddress());
+        initializeLists();
     }
 
     private void clearAllSelections() {
@@ -59,14 +59,11 @@ public class UIController {
     }
 
 
-    private void initializeLists(ServerRemote serverRemote, ClientModel clientModel) {
-        this.serverRemote = serverRemote;
-        this.clientModel = clientModel;
-
-        listsent.setItems(clientModel.getInbox());
+    private void initializeLists() {
+        listsent.setItems(this.clientModel.getInbox());
         listsent.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
-        listinbox.setItems(clientModel.getInbox());
+        listinbox.setItems(this.clientModel.getInbox());
         listinbox.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
         //TODO: creare le bozze
@@ -98,6 +95,7 @@ public class UIController {
 //            mailcontent.setText();
 //        }
     }
+
 
     class CheckMail extends Task {
         Email nuova = null;

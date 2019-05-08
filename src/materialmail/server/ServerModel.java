@@ -151,10 +151,14 @@ public class ServerModel extends UnicastRemoteObject implements ServerRemote {
     }
 
     private Mailbox getMailBoxForAddress(String address) {
-        for (Mailbox mailbox : mailboxes) {
-            if (mailbox.getAddress().equals(address))
-                return mailbox;
+        for (int i = 0; i < mailboxes.size(); i++) {
+            if (mailboxes.get(i).getAddress().equals(address))
+                return mailboxes.get(i);
         }
+//        for (Mailbox mailbox : mailboxes) {
+//            if (mailbox.getAddress().equals(address))
+//                return mailbox;
+//        }
         return null;
     }
 

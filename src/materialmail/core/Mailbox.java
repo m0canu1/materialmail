@@ -24,12 +24,14 @@ public class Mailbox implements Serializable {
         this.counter = 1;
         this.sent = new ArrayList<>();
         this.inbox = new ArrayList<>();
-        readMail("../../emails" + address + "/sent.txt", this.sent);
-        readMail("../../emails" + address + "/inbox.txt", this.inbox);
+
+        readMail("./emails/" + address + "/sent.txt", this.sent);
+        readMail("./emails/" + address + "/inbox.txt", this.inbox);
     }
 
     private void readMail(String filepath, ArrayList<Email> email) {
         try {
+            System.out.println(filepath);
             scanner1 = new Scanner(new File(filepath));
             while (scanner1.hasNextLine()) {
                 ArrayList<String> receivers = new ArrayList<>();

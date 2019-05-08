@@ -4,11 +4,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import materialmail.core.Email;
 import materialmail.core.ServerRemote;
+import materialmail.core.User;
 
 import java.rmi.RemoteException;
 
 public class ClientModel {
     private String address;
+    //TODO: sostituire address con la classe User
+    private User currentUser;
     private ServerRemote serverRemote; //ServerRemote interface
     private ObservableList<Email> sent;
     private ObservableList<Email> inbox;
@@ -18,14 +21,6 @@ public class ClientModel {
         inbox = FXCollections.observableArrayList();
     }
 
-//    public boolean setMailbox() throws RemoteException {
-//        if (serverRemote.loadMailbox(getAddress())) {
-//            sent.addAll(serverRemote.getSent(getAddress()));
-//            inbox.addAll(serverRemote.getInbox(getAddress()));
-//            return true;
-//        } else
-//            return false;
-//    }
     public boolean setMailbox() throws RemoteException {
         if (serverRemote.loadMailbox(getAddress())) {
             sent.addAll(serverRemote.getSent(getAddress()));
@@ -36,6 +31,10 @@ public class ClientModel {
 
     public void setServerRemote(ServerRemote serverRemote) {
         this.serverRemote = serverRemote;
+    }
+
+    public User getCurrentUser() {
+        return currentUser;
     }
 
     public String getAddress() {

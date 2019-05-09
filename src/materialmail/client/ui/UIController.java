@@ -2,11 +2,13 @@ package materialmail.client.ui;
 
 import javafx.application.Platform;
 import javafx.concurrent.Task;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import materialmail.client.model.ClientModel;
+import materialmail.core.AlertUtility;
 import materialmail.core.Email;
 import materialmail.core.ServerRemote;
 
@@ -60,7 +62,7 @@ public class UIController {
 
 
     private void initializeLists() {
-        listsent.setItems(this.clientModel.getInbox());
+        listsent.setItems(this.clientModel.getSent());
         listsent.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
         listinbox.setItems(this.clientModel.getInbox());
@@ -94,6 +96,20 @@ public class UIController {
 //            maildate.setText();
 //            mailcontent.setText();
 //        }
+    }
+
+    /**
+     * Quando viene chiusa la finestra del client
+     * verrà invocato questo metodo che eseguirà la disconnessione
+     * dell'utente.
+     */
+    public void shutdown() {
+        try {
+            serverRemote.removeMailbox(clientModel.getAddress());
+            serverRemote.addLog(clientModel.getAddress() + " si è disconnesso.");
+        } catch (RemoteException e) {
+            AlertUtility.error("Impossibile disconnettersi dal server.");
+        }
     }
 
 
@@ -131,6 +147,16 @@ public class UIController {
                 }
             }
         }
+    }
+
+    /**
+     * Metodo che viene invocato quando
+     * l’utente schiaccia il bottone (onAction)
+     *
+     * @param actionEvent
+     */
+    public void handleClose(ActionEvent actionEvent) {
+        shutdown();
     }
 
     public void setStage(Stage stage) {

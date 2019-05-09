@@ -40,14 +40,7 @@ public class Email implements Serializable {
 
     @Override
     public String toString() {
-        return "Email{" +
-                "id=" + id +
-                ", sender='" + sender + '\'' +
-                ", receiver='" + receivers + '\'' +
-                ", object='" + object + '\'' +
-                ", text='" + text + '\'' +
-                ", date=" + date +
-                '}';
+        return object + " - " + sender;
     }
 
     @Override

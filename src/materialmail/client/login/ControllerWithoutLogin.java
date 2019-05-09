@@ -85,6 +85,7 @@ public class ControllerWithoutLogin implements Initializable {
             /* imposto il parametro uiController con il controller preso da UI.fxml*/
             UIController uiController = loader.getController();
             uiController.initialize(serverRemote, clientModel);
+            stage.setOnCloseRequest(e -> uiController.shutdown());
             stage.setTitle(clientModel.getAddress());
             stage.show();
         } catch (IOException e) {

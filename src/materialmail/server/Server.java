@@ -15,7 +15,7 @@ public class Server extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Server.fxml"));
         stage.setScene(new Scene(loader.load()));
 //        stage.setMaximized(true);
-        stage.getIcons().add(new Image("materialmail/resources/hammermail.png"));
+        stage.getIcons().add(new Image("materialmail/resources/mail.png"));
 
 //        ServerController uiController = loader.getController();
 //        ServerModel model = new ServerModel();

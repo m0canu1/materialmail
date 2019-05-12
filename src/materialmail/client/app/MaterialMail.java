@@ -23,6 +23,11 @@ public class MaterialMail extends Application {
         primaryStage.setScene(scene);
         primaryStage.getIcons().add(new Image("materialmail/resources/hammermail.png"));
         primaryStage.show();
+
+//        ServerController uiController = loader.getController();
+//        ServerModel model = new ServerModel();
+//        uiController.initModel(model);
+
     }
 
     public static void main(String[] args) {

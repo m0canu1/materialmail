@@ -67,6 +67,12 @@ public class ServerController {
         }
     }
 
+    @FXML
+    private void handleClose() {
+        System.out.println("Il server è stato chiuso");
+        System.exit(0);
+    }
+
     private void launchRMIRegistry() throws RemoteException {
         try {
             LocateRegistry.createRegistry(2000);

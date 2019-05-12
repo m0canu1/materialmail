@@ -4,18 +4,24 @@ import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import materialmail.client.editor.EmailEditorController;
 import materialmail.client.model.ClientModel;
 import materialmail.core.AlertUtility;
 import materialmail.core.Email;
 import materialmail.core.ServerRemote;
 
+import java.io.IOException;
 import java.rmi.RemoteException;
 
 public class UIController {
 
+    private EmailEditorController emailEditorController;
     private Stage stage;
     private ClientModel clientModel;
     private ServerRemote serverRemote;
@@ -53,13 +59,6 @@ public class UIController {
         usernameLabel.setText(this.clientModel.getAddress());
         initializeLists();
     }
-
-    private void clearAllSelections() {
-        listinbox.getSelectionModel().clearSelection();
-        listsent.getSelectionModel().clearSelection();
-        listdraft.getSelectionModel().clearSelection();
-    }
-
 
     private void initializeLists() {
         listsent.setItems(this.clientModel.getSent());
@@ -161,5 +160,34 @@ public class UIController {
 
     public void setStage(Stage stage) {
         this.stage = stage;
+    }
+
+    @FXML
+    private void inviaNuovaMail(ActionEvent event) {
+        Stage stage = setCreator();
+        emailEditorController.setUpMail();
+        stage.show();
+    }
+
+    /**
+     * crea la view per la creazione di una nuova mail
+     *
+     * @return lo Stage da visualizzare
+     */
+    private Stage setCreator() {
+        Stage stage = null;
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().
+                    getResource("../editor/EmailEditor.fxml"));
+            Parent root = loader.load();
+            stage = new Stage();
+            emailEditorController = loader.getController();
+            stage.setTitle("Nuova Email");
+            stage.setScene(new Scene(root, 400, 450));
+            emailEditorController.setUpCreator(serverRemote, clientModel);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return stage;
     }
 }

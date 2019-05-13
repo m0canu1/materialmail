@@ -4,24 +4,30 @@ import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import materialmail.client.editor.EmailEditorController;
 import materialmail.client.model.ClientModel;
 import materialmail.core.AlertUtility;
 import materialmail.core.Email;
 import materialmail.core.ServerRemote;
 
+import java.io.IOException;
 import java.rmi.RemoteException;
 
 public class UIController {
 
+    EmailEditorController emailEditorController;
     private Stage stage;
     private ClientModel clientModel;
     private ServerRemote serverRemote;
 
     //    private final String currentUser = ClientModel.getModel().getCurrentUser().getUsername();
-    private final String currentUser = "alex@matmail.com";
+//    private final String currentUser = "alex@matmail.com";
 
     @FXML
     private Label fromLabel, toLabel, objLabel, usernameLabel;
@@ -45,22 +51,15 @@ public class UIController {
 
 
     public void initialize(ServerRemote serverRemote, ClientModel clientModel) {
-
         this.serverRemote = serverRemote;
         this.clientModel = clientModel;
-
-//        clearAllSelections();
         usernameLabel.setText(this.clientModel.getAddress());
         initializeLists();
     }
 
-    private void clearAllSelections() {
-        listinbox.getSelectionModel().clearSelection();
-        listsent.getSelectionModel().clearSelection();
-        listdraft.getSelectionModel().clearSelection();
-    }
-
-
+    /**
+     *
+     */
     private void initializeLists() {
         listsent.setItems(this.clientModel.getSent());
         listsent.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
@@ -149,6 +148,41 @@ public class UIController {
         }
     }
 
+    @FXML
+    private void sendNewMail(ActionEvent event) {
+        Stage stage = setCreator();
+        emailEditorController.setUpMail();
+        stage.show();
+    }
+
+    @FXML
+    private void sendMail(ActionEvent event) {
+        Email email = null;
+        // questo if prende in esame il caso in cui si voglia inoltrare una mail inviata
+        if (!listsent.getSelectionModel().isEmpty()) {
+            email = listsent.getSelectionModel().getSelectedItem();
+            Stage stage = setCreator();
+            if (event.getSource() == forwardButton) { //se viene premuto il tasto inoltra
+                emailEditorController.forward(email);
+                emailEditorController.setUpMail();
+                if (stage != null) stage.show();
+            } else AlertUtility.error("Non puoi rispondere ad una mail inviata da te");
+        } else if (!listinbox.getSelectionModel().isEmpty()) {
+            email = listinbox.getSelectionModel().getSelectedItem();
+            Stage stage = setCreator();
+            if (event.getSource() == replyButton)
+                emailEditorController.reply(email);
+            else if (event.getSource() == replyAllButton)
+                emailEditorController.replyEveryone(email);
+            else if (event.getSource() == forwardButton)
+                emailEditorController.forward(email);
+            emailEditorController.setUpMail();
+            if (stage != null) stage.show();
+        }
+        if (email == null)
+            AlertUtility.error("Seleziona prima una mail a cui rispondere");
+    }
+
     /**
      * Metodo che viene invocato quando
      * l’utente schiaccia il bottone (onAction)
@@ -156,7 +190,23 @@ public class UIController {
      * @param actionEvent
      */
     public void handleClose(ActionEvent actionEvent) {
-        shutdown();
+//        shutdown();
+    }
+
+    private Stage setCreator() {
+        Stage stage = null;
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../editor/EmailEditor.fxml"));
+            Parent root = loader.load();
+            stage = new Stage();
+            emailEditorController = loader.getController();
+            stage.setTitle("New Mail");
+            stage.setScene(new Scene(root));
+            emailEditorController.setUpCreator(serverRemote, clientModel);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return stage;
     }
 
     public void setStage(Stage stage) {

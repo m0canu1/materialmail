@@ -13,16 +13,20 @@ public class MaterialMail extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.initStyle(StageStyle.TRANSPARENT); //elimina la barra del titolo
-//        Parent root = FXMLLoader.load(getClass().getResource("../login/login.fxml"));
-        Parent root = FXMLLoader.load(getClass().getResource("../login/LoginView.fxml"));
+        //Starts server app
+//        Stage serverStage = new Stage();
+//        Server server = new Server();
+//        server.start(serverStage);
 
+        primaryStage.initStyle(StageStyle.TRANSPARENT); //elimina la barra del titolo
+        Parent root = FXMLLoader.load(getClass().getResource("../login/LoginView.fxml"));
         Scene scene = new Scene(root);
         scene.setFill(Color.TRANSPARENT); //rende gli angoli trasparenti
         primaryStage.setTitle("MaterialMail - Client"); //titolo della finestra
         primaryStage.setScene(scene);
         primaryStage.getIcons().add(new Image("materialmail/resources/hammermail.png"));
         primaryStage.show();
+
     }
 
     public static void main(String[] args) {

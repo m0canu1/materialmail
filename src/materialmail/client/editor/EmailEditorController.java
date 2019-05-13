@@ -7,6 +7,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import materialmail.client.model.ClientModel;
+import materialmail.core.AlertUtility;
 import materialmail.core.Email;
 import materialmail.core.ServerRemote;
 
@@ -76,11 +77,9 @@ public class EmailEditorController {
                 templateMail.setText(bodyfield.getText());
             templateMail.setText(bodyfield.getText());
             if (receiversmail.getText().isEmpty()) {
-                //TODO: alertutility
-                System.out.println("Devi specificare almeno un destinatario!");
+                AlertUtility.error("Devi specificare almeno un destinatario.");
             } else if (receiversmail.getText().equals(sender))
-                //TODO: alertutility
-                System.out.println("Mittente e destinatario non possono coincidere!");
+                AlertUtility.error("Mittente e destinatario non possono coincidere.");
             else {
                 String receiver = receiversmail.getText();
                 Scanner scanner = new Scanner(receiver.substring(1, receiver.length() - 1)).useDelimiter(", ");
@@ -92,13 +91,11 @@ public class EmailEditorController {
                             if (!destinatario.equals(sender)) {
                                 templateMail.getReceiver().add(destinatario);
                             } else {
-                                //TODO: alertutility
-                                System.out.println("Mittente e destinatario non possono coincidere!");
+                                AlertUtility.error("Mittente e destinatario non possono coincidere.");
                                 flag = false;
                             }
                         } else {
-                            //TODO: alertutility
-                            System.out.println("Il destinatario " + destinatario + " non esiste!");
+                            AlertUtility.error("Il destinatario " + destinatario + " non esiste!");
                             flag = false;
                         }
                     }
@@ -107,14 +104,12 @@ public class EmailEditorController {
                     serverRemote.sendMail(templateMail);
                     clientModel.getSent().add(templateMail);
                     System.out.println(templateMail.toString());
-                    //TODO: alertutility
-                    System.out.println("Email inviata con successo!");
+                    AlertUtility.info("Email inviata con successo!");
                     ((Node) actionEvent.getSource()).getScene().getWindow().hide();
                 }
             }
         } catch (RemoteException e) {
-            //TODO: alertutility
-            System.out.println("Non sei connesso al server");
+            AlertUtility.error("Non sei connesso al server.");
         }
     }
 }

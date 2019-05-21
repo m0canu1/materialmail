@@ -6,7 +6,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <VBox xmlns:fx="http://javafx.com/fxml/1" prefHeight="427.0" prefWidth="331.0" styleClass="main-ui-root"
-      stylesheets="@../../resources/dark.css" xmlns="http://javafx.com/javafx/8.0.172-ea"
+      stylesheets="@../../resources/teal.css" xmlns="http://javafx.com/javafx/11.0.1"
       fx:controller="materialmail.client.editor.EmailEditorController">
     <Label fx:id="label1" text="To">
         <VBox.margin>

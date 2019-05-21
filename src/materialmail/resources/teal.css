@@ -19,7 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     /*-fx-background-color: transparent;*/
     -common-back-color: #4db6ac;
     /*-active-back-color: #2d2d2d;*/
-    /*-enveloped-back-color: #3A506B;*/
+    -enveloped-back-color: #00867d;
     /*-tooltip-back-color: #363636;*/
 
     /*-left-menu-bar-back-color: -enveloped-back-color;*/
@@ -27,7 +27,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     /*!*text*!*/
     /*-fx-font-family: "Segoe UI Semibold";*/
     -common-text-fill: white;
-    /*-enveloped-text-fill: #e2e2e2;*/
+    -enveloped-text-fill: black;
     /*-common-text-font-size: 11pt;*/
     /*-error-text-fill: #ff0000;*/
     /*-active-text-fill: #2EC4B6;*/
@@ -69,23 +69,23 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     -fx-background-color: transparent;
 }
 
-/*.main-ui-root {*/
-/*    -fx-background-color: -common-back-color;*/
+.main-ui-root {
+    -fx-background-color: -common-back-color;
+}
 
-/*}*/
-/*.label {*/
-/*    -fx-font-size: 11pt;*/
-/*    -fx-text-fill: -common-text-fill;*/
+.label {
+    -fx-font-size: 11pt;
+    -fx-text-fill: -common-text-fill;
 
-/*}*/
+}
 
-/*.label-enveloped {*/
-/*    -fx-font-size: 11pt;*/
-/*    -fx-background-color: -enveloped-back-color;*/
-/*    -fx-text-fill: -enveloped-text-fill;*/
-/*    -fx-background-radius: 15;*/
-/*    -fx-padding: 2 5 2 5;*/
-/*}*/
+.label-enveloped {
+    -fx-font-size: 11pt;
+    -fx-background-color: -enveloped-back-color;
+    -fx-text-fill: -enveloped-text-fill;
+    -fx-background-radius: 15;
+    -fx-padding: 2 5 2 5;
+}
 
 /*.button {*/
 /*    -fx-border-color: -common-border-fill;*/
@@ -133,13 +133,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /*    -opacity: .8;*/
 /*}*/
 
-/*.close-button{*/
-/*    -fx-padding: 2 5.3 2 5.3;*/
-/*    -fx-border-width: .7;*/
-/*    -fx-border-radius: 20;*/
-/*    -fx-font-size: 7pt;*/
-/*    -fx-border-color: white, white;*/
-/*}*/
+.close-button {
+    -fx-padding: 2 5.3 2 5.3;
+    -fx-border-width: .7;
+    -fx-border-radius: 20;
+    -fx-font-size: 10pt;
+    -fx-border-color: white, white;
+}
 
 
 /*.action-button {*/

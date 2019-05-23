@@ -10,6 +10,8 @@ import materialmail.core.ServerRemote;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
@@ -57,7 +59,7 @@ public class ServerModel extends UnicastRemoteObject implements ServerRemote {
     }
 
     public void sendMail(Email email) {
-        writeMail("../../emails" + email.getSender() + "/sent.txt", email);
+        writeMail("./emails/" + email.getSender() + "/sent.txt", email);
         getMailBoxForAddress(email.getSender()).incrCounter();
         getMailBoxForAddress(email.getSender()).getSent().add(email);
         for (int i = 0; i < email.getReceiver().size(); i++) {
@@ -73,7 +75,7 @@ public class ServerModel extends UnicastRemoteObject implements ServerRemote {
             getMailBoxForAddress(receiver).getInbox().add(email);
             addLog(receiver + " ha ricevuto una mail.");
         }
-        writeMail("../../emails" + receiver + "/inbox.txt", email);
+        writeMail("./emails/" + receiver + "/inbox.txt", email);
     }
 
     /**
@@ -83,11 +85,17 @@ public class ServerModel extends UnicastRemoteObject implements ServerRemote {
      */
     private void writeMail(String path, Email email) {
         try {
-            FileWriter fw = new FileWriter(path, true);
-            fw.write(email.toString() + "\n");
-            fw.close();
+            if (!Files.exists(Paths.get(path))) {
+                Files.createDirectory(Paths.get(path));
+                System.out.println("Directory created.");
+            } else {
+                FileWriter fw = new FileWriter(path, true);
+                fw.write(email.toString() + "\n");
+                fw.close();
+            }
         } catch (FileNotFoundException e) {
             System.out.println("Non ho trovato il file");
+            System.out.println(path);
             System.exit(-1);
         } catch (IOException e) {
             System.out.println("Errore I/O");

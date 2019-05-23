@@ -19,9 +19,6 @@
                     <!-- Email list -->
                     <ListView fx:id="listsent" prefHeight="200.0" prefWidth="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                 </Tab>
-                <Tab text="Drafts">
-                    <ListView fx:id="listdraft" prefHeight="200.0" prefWidth="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                </Tab>
                 <VBox.margin>
                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                 </VBox.margin>

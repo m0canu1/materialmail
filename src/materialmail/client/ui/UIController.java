@@ -38,7 +38,7 @@ public class UIController {
     /*A ListView displays a horizontal or vertical list of items
      from which the user may select, or with which the user may interact.*/
     @FXML
-    private ListView<Email> listinbox, listsent, listdraft;
+    private ListView<Email> listinbox, listsent;
 
     @FXML
     private TextArea maildate, mailcontent;

@@ -51,7 +51,8 @@
                             <Tooltip text="Delete materialmail" />
                         </tooltip>
                     </Button>
-                    <Button fx:id="replyButton" mnemonicParsing="false" onAction="#sendMail" styleClass="action-button">
+                    <Button fx:id="replyButton" mnemonicParsing="false" onAction="#handleReply"
+                            styleClass="action-button">
                         <graphic>
                             <ImageView fitHeight="150.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                 <Image url="@../../resources/reply.png" />
@@ -61,7 +62,7 @@
                             <Tooltip text="Reply" />
                         </tooltip>
                     </Button>
-                    <Button fx:id="replyAllButton" mnemonicParsing="false" onAction="#sendMail"
+                    <Button fx:id="replyAllButton" mnemonicParsing="false" onAction="#handleReply"
                             styleClass="action-button">
                         <graphic>
                             <ImageView fitHeight="150.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
@@ -72,7 +73,7 @@
                             <Tooltip text="Reply to all" />
                         </tooltip>
                     </Button>
-                    <Button fx:id="forwardButton" mnemonicParsing="false" onAction="#sendMail"
+                    <Button fx:id="forwardButton" mnemonicParsing="false" onAction="#handleForward"
                             styleClass="action-button">
                         <graphic>
                             <ImageView fitHeight="150.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">

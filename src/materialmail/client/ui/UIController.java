@@ -33,7 +33,7 @@ public class UIController {
     private Label fromLabel, toLabel, objLabel, usernameLabel;
 
     @FXML
-    private Button newMailButton, sendButton, modifyButton, forwardButton, replyButton, replyAllButton, deleteButton;
+    private Button replyButton;
 
     /*A ListView displays a horizontal or vertical list of items
      from which the user may select, or with which the user may interact.*/
@@ -67,9 +67,8 @@ public class UIController {
         listinbox.setItems(this.clientModel.getInbox());
         listinbox.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
-        //TODO: creare le bozze
-
         showEmailDetails(null);
+
         listsent.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showEmailDetails(newValue));
         listinbox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showEmailDetails(newValue));
 
@@ -81,7 +80,7 @@ public class UIController {
     private void showEmailDetails(Email email) {
         if (email != null) {
             fromLabel.setText(email.getSender());
-            toLabel.setText(email.getReceiver().toString());
+            toLabel.setText(email.getReceivers().toString());
             objLabel.setText(email.getObject());
             //TODO: da verificare questi due
             maildate.setText(email.getDate());
@@ -149,38 +148,48 @@ public class UIController {
     }
 
     @FXML
-    private void sendNewMail(ActionEvent event) {
+    private void sendNewMail() {
         Stage stage = setCreator();
-        emailEditorController.setUpMail();
         stage.show();
     }
 
     @FXML
-    private void sendMail(ActionEvent event) {
+    private void handleReply(ActionEvent event) {
         Email email = null;
-        // questo if prende in esame il caso in cui si voglia inoltrare una mail inviata
-        if (!listsent.getSelectionModel().isEmpty()) {
-            email = listsent.getSelectionModel().getSelectedItem();
-            Stage stage = setCreator();
-            if (event.getSource() == forwardButton) { //se viene premuto il tasto inoltra
-                emailEditorController.forward(email);
-                emailEditorController.setUpMail();
-                if (stage != null) stage.show();
-            } else AlertUtility.error("Non puoi rispondere ad una mail inviata da te");
-        } else if (!listinbox.getSelectionModel().isEmpty()) {
+        if (!listinbox.getSelectionModel().isEmpty()) {
             email = listinbox.getSelectionModel().getSelectedItem();
             Stage stage = setCreator();
-            if (event.getSource() == replyButton)
-                emailEditorController.reply(email);
-            else if (event.getSource() == replyAllButton)
-                emailEditorController.replyEveryone(email);
-            else if (event.getSource() == forwardButton)
-                emailEditorController.forward(email);
-            emailEditorController.setUpMail();
+            if (event.getSource() == replyButton) emailEditorController.reply(email);
+            else emailEditorController.replyEveryone(email);
             if (stage != null) stage.show();
         }
         if (email == null)
             AlertUtility.error("Seleziona prima una mail a cui rispondere");
+    }
+
+    @FXML
+    private void handleForward() {
+        Email email = null;
+        if (!listsent.getSelectionModel().isEmpty()) {
+            email = listsent.getSelectionModel().getSelectedItem();
+            forward(email);
+        } else if (!listinbox.getSelectionModel().isEmpty()) {
+            email = listinbox.getSelectionModel().getSelectedItem();
+            forward(email);
+        }
+        if (email == null)
+            AlertUtility.error("Seleziona prima una mail da inoltrare");
+    }
+
+    /**
+     * support method for handleForward to avoid redundant code
+     *
+     * @param email
+     */
+    private void forward(Email email) {
+        Stage stage = setCreator();
+        emailEditorController.forward(email);
+        if (stage != null) stage.show();
     }
 
     /**

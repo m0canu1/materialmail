@@ -13,10 +13,6 @@ public class MaterialMail extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        //Starts server app
-//        Stage serverStage = new Stage();
-//        Server server = new Server();
-//        server.start(serverStage);
 
         primaryStage.initStyle(StageStyle.TRANSPARENT); //elimina la barra del titolo
         Parent root = FXMLLoader.load(getClass().getResource("../login/LoginView.fxml"));

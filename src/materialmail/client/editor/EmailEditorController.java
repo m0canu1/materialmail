@@ -49,47 +49,57 @@ public class EmailEditorController {
      * @param email
      */
     public void reply(Email email) {
-        templateMail.getReceiver().add(email.getSender());
+        templateMail.getReceivers().add(email.getSender());
+        setUpMail();
     }
 
     public void replyEveryone(Email email) {
-        templateMail.getReceiver().add(email.getSender());
-        for (int i = 0; i < email.getReceiver().size(); i++) {
-            if (!email.getReceiver().get(i).equals(sender))
-                templateMail.getReceiver().add(email.getReceiver().get(i));
+        templateMail.getReceivers().add(email.getSender());
+        for (int i = 0; i < email.getReceivers().size(); i++) {
+            if (!email.getReceivers().get(i).equals(sender))
+                templateMail.getReceivers().add(email.getReceivers().get(i));
         }
+        setUpMail();
     }
 
     public void forward(Email email) {
         bodyfield.setText(email.getText());
+        setUpMail();
     }
 
-    public void setUpMail() {
-        receiversmail.setText(templateMail.getReceiver().toString());
-        receiversmail.setText(templateMail.getReceiver().toString());
+    private void setUpMail() {
+        //TODO: controllare
+        receiversmail.setText(templateMail.getReceiverAsString());
+        receiversmail.setText(templateMail.getReceiverAsString());
     }
 
+    @FXML
     public void handleSend(ActionEvent actionEvent) {
         try {
-            if (!mailobject.getText().isEmpty())
-                templateMail.setObject(mailobject.getText());
-            if (!bodyfield.getText().isEmpty())
-                templateMail.setText(bodyfield.getText());
+            //TODO: forse inutile
+//            if (!mailobject.getText().isEmpty()) {
+//                templateMail.setObject(mailobject.getText());
+//            }
+            templateMail.setObject((mailobject.getText()));
+//            if (!bodyfield.getText().isEmpty())
+//                templateMail.setText(bodyfield.getText());
             templateMail.setText(bodyfield.getText());
+
             if (receiversmail.getText().isEmpty()) {
                 AlertUtility.error("Devi specificare almeno un destinatario.");
             } else if (receiversmail.getText().equals(sender))
                 AlertUtility.error("Mittente e destinatario non possono coincidere.");
+
             else {
                 String receiver = receiversmail.getText();
-                Scanner scanner = new Scanner(receiver.substring(1, receiver.length() - 1)).useDelimiter(", ");
-                Boolean flag = true;
-                if (templateMail.getReceiver().isEmpty()) {
+                Scanner scanner = new Scanner(receiver).useDelimiter(", ");
+                boolean flag = true;
+                if (templateMail.getReceivers().isEmpty()) {
                     while (scanner.hasNext()) {
                         String destinatario = scanner.next();
                         if (serverRemote.checkReceiver(destinatario)) { //verifica l'esistenza del destinatario
                             if (!destinatario.equals(sender)) {
-                                templateMail.getReceiver().add(destinatario);
+                                templateMail.getReceivers().add(destinatario);
                             } else {
                                 AlertUtility.error("Mittente e destinatario non possono coincidere.");
                                 flag = false;

@@ -17,7 +17,7 @@
       </library>
     </orderEntry>
     <orderEntry type="library" exported="" name="JFX12" level="application" />
-    <orderEntry type="library" name="lib" level="application" />
     <orderEntry type="library" name="JavaFX" level="application" />
+    <orderEntry type="library" name="JFX11" level="project" />
   </component>
 </module>

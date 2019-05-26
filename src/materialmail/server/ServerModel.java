@@ -62,8 +62,8 @@ public class ServerModel extends UnicastRemoteObject implements ServerRemote {
         writeMail("./emails/" + email.getSender() + "/sent.txt", email);
         getMailBoxForAddress(email.getSender()).incrCounter();
         getMailBoxForAddress(email.getSender()).getSent().add(email);
-        for (int i = 0; i < email.getReceiver().size(); i++) {
-            String receiver = email.getReceiver().get(i);
+        for (int i = 0; i < email.getReceivers().size(); i++) {
+            String receiver = email.getReceivers().get(i);
             deliverMail(email, receiver);
         }
     }
@@ -90,7 +90,7 @@ public class ServerModel extends UnicastRemoteObject implements ServerRemote {
                 System.out.println("Directory created.");
             } else {
                 FileWriter fw = new FileWriter(path, true);
-                fw.write(email.toString() + "\n");
+                fw.write(email.toFile() + "\n");
                 fw.close();
             }
         } catch (FileNotFoundException e) {

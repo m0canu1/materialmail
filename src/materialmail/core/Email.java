@@ -43,6 +43,20 @@ public class Email implements Serializable {
         return object + " - " + sender;
     }
 
+    public String toFile() {
+        String result = getSender() + " % ";
+        for (int i = 0; i < getReceivers().size(); i++) {
+            if (i < getReceivers().size() - 1)
+                result += getReceivers().get(i) + ", ";
+            else
+                result += getReceivers().get(i);
+        }
+        result += " % " + getObject();
+        result += " % " + getText();
+        result += " % " + getDate();
+        return result;
+    }
+
     @Override
     public int hashCode() {
         int hash = 3;
@@ -77,8 +91,17 @@ public class Email implements Serializable {
         this.sender = sender;
     }
 
-    public ArrayList<String> getReceiver() {
+    public ArrayList<String> getReceivers() {
         return receivers;
+    }
+
+    public String getReceiverAsString() {
+        StringBuilder builder = new StringBuilder();
+        for (String value : receivers) {
+            builder.append(value);
+        }
+        String text = builder.toString();
+        return text;
     }
 
     public void setReceiver(ArrayList<String> receiver) {

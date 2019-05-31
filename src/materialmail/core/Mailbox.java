@@ -14,9 +14,6 @@ public class Mailbox implements Serializable {
     private ArrayList<Email> sent;
     private ArrayList<Email> inbox;
     private Email newEmail;
-    private Scanner scanner1;
-    private Scanner scanner2;
-    private Scanner scanner3;
 
 
     public Mailbox(String address) {
@@ -32,14 +29,14 @@ public class Mailbox implements Serializable {
     private void readMail(String filepath, ArrayList<Email> email) {
         try {
             System.out.println(filepath);
-            scanner1 = new Scanner(new File(filepath));
+            Scanner scanner1 = new Scanner(new File(filepath));
             while (scanner1.hasNextLine()) {
                 ArrayList<String> receivers = new ArrayList<>();
-                this.scanner2 = new Scanner(scanner1.nextLine()).useDelimiter("\\s*%\\s*");
-                if (this.scanner2.hasNext()) {
+                Scanner scanner2 = new Scanner(scanner1.nextLine()).useDelimiter("\\s*%\\s*");
+                if (scanner2.hasNext()) {
                     String sender = scanner2.next();
                     if (scanner2.hasNext()) {
-                        scanner3 = new Scanner(scanner2.next()).useDelimiter("\\s*,\\s*");
+                        Scanner scanner3 = new Scanner(scanner2.next()).useDelimiter("\\s*,\\s*");
                         while (scanner3.hasNext()) {
                             receivers.add(scanner3.next()); //aggiungo il mittente appena letto ai mittenti già presenti
                         }
@@ -65,24 +62,20 @@ public class Mailbox implements Serializable {
     }
 
     public String toString() {
-        String result = "Address: " + getAddress() + "\n";
-        result += "Messaggi inviati: \n";
+        StringBuilder result = new StringBuilder("Address: " + getAddress() + "\n");
+        result.append("Messaggi inviati: \n");
         for (int i = 0; i < getSent().size(); i++) {
-            result += getSent().get(i).toString() + "\n";
+            result.append(getSent().get(i).toString()).append("\n");
         }
-        result += "Messaggi ricevuti: \n";
+        result.append("Messaggi ricevuti: \n");
         for (int i = 0; i < getInbox().size(); i++) {
-            result += getInbox().get(i).toString() + "\n";
+            result.append(getInbox().get(i).toString()).append("\n");
         }
-        return result;
+        return result.toString();
     }
 
     public String getAddress() {
         return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     private int getCounter() {
@@ -97,16 +90,8 @@ public class Mailbox implements Serializable {
         return sent;
     }
 
-    public void setSent(ArrayList<Email> sent) {
-        this.sent = sent;
-    }
-
     public ArrayList<Email> getInbox() {
         return inbox;
-    }
-
-    public void setInbox(ArrayList<Email> inbox) {
-        this.inbox = inbox;
     }
 
     public Email getNewEmail() {
@@ -121,27 +106,29 @@ public class Mailbox implements Serializable {
      * cancella una mail dalla caselle inviata
      * @param email la mail che andrà cancellata
      */
+    @SuppressWarnings("SuspiciousListRemoveInLoop")
     public void deleteSent(Email email) {
         for (int i = 0; i < sent.size(); i++) {
-            if (sent.get(i).getId() == email.getId())
+            if (sent.get(i).getId().equals(email.getId()))
                 sent.remove(i);
         }
-        writeMail("../../emails" + address + "/sent.txt", sent, false);
+        writeMail("./emails/" + address + "/sent.txt", sent);
     }
 
+    @SuppressWarnings("SuspiciousListRemoveInLoop")
     public void deleteReceived(Email email) {
         for (int i = 0; i < inbox.size(); i++) {
-            if (inbox.get(i).getId() == email.getId())
+            if (inbox.get(i).getId().equals(email.getId()))
                 inbox.remove(i);
         }
-        writeMail("../../emails" + address + "/sent.txt", inbox, false);
+        writeMail("./emails/" + address + "/inbox.txt", inbox);
     }
 
-    private void writeMail(String path, ArrayList<Email> email, boolean append) {
+    private void writeMail(String path, ArrayList<Email> emailList) {
         try {
-            FileWriter fw = new FileWriter(path, append);
-            for (int i = 0; i < email.size(); i++) {
-                fw.write(email.get(i).toString() + "\n");
+            FileWriter fw = new FileWriter(path, false);
+            for (Email e : emailList) {
+                fw.write(e.toString() + "\n");
             }
             fw.close();
         } catch (IOException e) {

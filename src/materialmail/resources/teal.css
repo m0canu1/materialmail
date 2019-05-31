@@ -17,9 +17,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 * {
     /*-fx-background-color: transparent;*/
-    -common-back-color: #4db6ac;
+    -common-back-color: #009688;
     /*-active-back-color: #2d2d2d;*/
-    -enveloped-back-color: #00867d;
+    /*-enveloped-back-color: #00867d;*/
     /*-tooltip-back-color: #363636;*/
 
     /*-left-menu-bar-back-color: -enveloped-back-color;*/
@@ -86,6 +86,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     -fx-background-radius: 15;
     -fx-padding: 2 5 2 5;
 }
+
+.rightmailbox {
+    -fx-background-color: #00675b;
+}
+
 
 /*.button {*/
 /*    -fx-border-color: -common-border-fill;*/
@@ -209,29 +214,29 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /*    -fx-text-fill: -common-text-fill;*/
 /*}*/
 
-/*.tab  {*/
-/*    -fx-alignment: CENTER;*/
-/*}*/
+.tab  {
+    -fx-alignment: CENTER;
+}
 
-/*.tab .tab-label {*/
-/*    -fx-alignment: CENTER;*/
-/*    -fx-text-fill: -common-text-fill;*/
-/*    -fx-font-size: 14pt;*/
-/*}*/
+.tab .tab-label {
+    -fx-alignment: CENTER;
+    -fx-text-fill: -common-text-fill;
+    -fx-font-size: 14pt;
+}
 
-/*.tab:focused .tab-label {*/
-/*    -fx-text-fill: -active-text-fill;*/
-/*    -fx-border-width: 0;*/
-/*}*/
+.tab:focused .tab-label {
+    -fx-text-fill: -active-text-fill;
+    -fx-border-width: 0;
+}
 
-/*.tab:selected .tab-label {*/
-/*    -fx-text-fill: -active-text-fill;*/
-/*    -fx-border-width: 0;*/
-/*}*/
+.tab:selected .tab-label {
+    -fx-text-fill: -active-text-fill;
+    -fx-border-width: 0;
+}
 
-/*.tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {*/
-/*    -fx-border-color: transparent;*/
-/*}*/
+.tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+    -fx-border-color: transparent;
+}
 
 /*.tooltip {*/
 /*    -fx-text-fill: -active-text-fill;*/
@@ -243,9 +248,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /*    -fx-font-size: 14;*/
 /*}*/
 
-/*.list-view {*/
-/*    -fx-padding: 10 3 5 2;*/
-/*}*/
+.list-view {
+    -fx-padding: 10 3 5 2;
+}
 
 /*.list-cell:filled {*/
 /*    -fx-padding: 10 8 10 5;*/

@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import materialmail.client.editor.EmailEditorController;
@@ -30,7 +31,7 @@ public class UIController {
 //    private final String currentUser = "alex@matmail.com";
 
     @FXML
-    private Label fromLabel, toLabel, objLabel, usernameLabel;
+    private Label fromLabel, toLabel, dateLabel, objLabel, usernameLabel;
 
     @FXML
     private Button replyButton;
@@ -70,7 +71,18 @@ public class UIController {
         showEmailDetails(null);
 
         listsent.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showEmailDetails(newValue));
+        listsent.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue) {
+                listsent.getSelectionModel().clearSelection();
+            }
+        }); //serve a cancellare la selezione della mail quando si passa da un tab all'altro (da inbox a sent)
+
         listinbox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showEmailDetails(newValue));
+        listinbox.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue) {
+                listinbox.getSelectionModel().clearSelection();
+            }
+        });
 
         Thread syncMail = new Thread(new CheckMail());
         syncMail.setDaemon(true);
@@ -80,20 +92,30 @@ public class UIController {
     private void showEmailDetails(Email email) {
         if (email != null) {
             fromLabel.setText(email.getSender());
-            toLabel.setText(email.getReceivers().toString());
+            toLabel.setText(email.getReceiverAsString().toString());
             objLabel.setText(email.getObject());
             //TODO: da verificare questi due
-            maildate.setText(email.getDate());
+            dateLabel.setText(email.getDate());
             mailcontent.setText(email.getText());
+            setVisible();
         }
-//        else {
-//            fromLabel.setText();
-//            toLabel.setText();
-//            objLabel.setText();
-//            //TODO: da verificare questi due
-//            maildate.setText();
-//            mailcontent.setText();
-//        }
+        else setInvisible();
+    }
+
+    private void setInvisible() {
+        fromLabel.setVisible(false);
+        toLabel.setVisible(false);
+        objLabel.setVisible(false);
+        dateLabel.setVisible(false);
+        mailcontent.setVisible(false);
+    }
+
+    private void setVisible() {
+        fromLabel.setVisible(true);
+        toLabel.setVisible(true);
+        objLabel.setVisible(true);
+        dateLabel.setVisible(true);
+        mailcontent.setVisible(true);
     }
 
     /**
@@ -203,7 +225,7 @@ public class UIController {
             } else if (!listinbox.getSelectionModel().isEmpty()) {
                 Email selected = listinbox.getSelectionModel().getSelectedItem();
                 listinbox.getItems().remove(selected);
-                serverRemote.deleteSent(clientModel.getAddress(), selected);
+                serverRemote.deleteReceived(clientModel.getAddress(), selected);
             } else
                 AlertUtility.error("Non hai selezionato alcuna mail.");
 

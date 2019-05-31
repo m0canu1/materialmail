@@ -66,6 +66,7 @@ public class ServerModel extends UnicastRemoteObject implements ServerRemote {
             String receiver = email.getReceivers().get(i);
             deliverMail(email, receiver);
         }
+        addLog(email.getSender() + " ha inviato una mail.");
     }
 
     private void deliverMail(Email email, String receiver) {
@@ -86,7 +87,7 @@ public class ServerModel extends UnicastRemoteObject implements ServerRemote {
     private void writeMail(String path, Email email) {
         try {
             if (!Files.exists(Paths.get(path))) {
-                Files.createDirectory(Paths.get(path));
+                Files.createFile(Paths.get(path));
                 System.out.println("Directory created.");
             } else {
                 FileWriter fw = new FileWriter(path, true);

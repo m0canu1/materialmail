@@ -192,6 +192,25 @@ public class UIController {
         if (stage != null) stage.show();
     }
 
+
+    @FXML
+    private void handleDelete() {
+        try {
+            if (!listsent.getSelectionModel().isEmpty()) {
+                Email selected = listsent.getSelectionModel().getSelectedItem();
+                serverRemote.deleteSent(clientModel.getAddress(), selected);
+                listsent.getItems().remove(selected);
+            } else if (!listinbox.getSelectionModel().isEmpty()) {
+                Email selected = listinbox.getSelectionModel().getSelectedItem();
+                listinbox.getItems().remove(selected);
+                serverRemote.deleteSent(clientModel.getAddress(), selected);
+            } else
+                AlertUtility.error("Non hai selezionato alcuna mail.");
+
+        } catch (RemoteException e) {
+                AlertUtility.error("Non sei connesso al server.");
+        }
+    }
     /**
      * Metodo che viene invocato quando
      * l’utente schiaccia il bottone (onAction)

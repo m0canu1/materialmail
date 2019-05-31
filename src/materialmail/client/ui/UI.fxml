@@ -41,7 +41,7 @@
         <VBox alignment="TOP_RIGHT" styleClass="vbox" HBox.hgrow="ALWAYS">
             <HBox alignment="CENTER_RIGHT">
                 <HBox spacing="5.0" HBox.hgrow="ALWAYS">
-                    <Button fx:id="deleteButton" styleClass="action-button">
+                    <Button fx:id="deleteButton" onAction="#handleDelete" styleClass="action-button">
                         <graphic>
                             <ImageView fitHeight="150.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                 <Image url="@../../resources/delete.png" />

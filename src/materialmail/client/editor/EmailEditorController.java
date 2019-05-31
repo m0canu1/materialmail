@@ -24,7 +24,6 @@ public class EmailEditorController {
     private String sender;
 
 
-
     @FXML
     private TextField receiversmail, mailobject;
 

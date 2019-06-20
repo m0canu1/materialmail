@@ -37,7 +37,7 @@ public class LoginController implements Initializable {
     private ServerRemote serverRemote;
     private ClientModel clientModel;
     @FXML
-    private Label loginfailure;
+    private Label loginFailure;
     @FXML
     private ComboBox<String> choose_email;
 
@@ -70,8 +70,8 @@ public class LoginController implements Initializable {
     }
 
     private void showError(String message) {
-        loginfailure.setText(message);
-        loginfailure.setVisible(true);
+        loginFailure.setText(message);
+        loginFailure.setVisible(true);
     }
 
     private void showMailboxView(ActionEvent event) {
@@ -96,7 +96,7 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        loginfailure.setVisible(false);
+        loginFailure.setVisible(false);
         this.clientModel = new ClientModel();
         /* Inizializza gli elementi con gli indirizzi che sono
          * un oggetto observable, quindi ad ogni loro cambiamento questa

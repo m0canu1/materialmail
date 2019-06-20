@@ -16,8 +16,6 @@ import java.util.Scanner;
 
 public class EmailEditorController {
 
-    private Stage stage;
-
     private ServerRemote serverRemote;
     private ClientModel clientModel;
     private Email templateMail;

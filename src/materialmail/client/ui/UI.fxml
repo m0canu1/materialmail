@@ -22,11 +22,11 @@
             <!-- Left panel -->
             <TabPane fx:id="tabPane" minHeight="0.0" minWidth="0.0" styleClass="tab-pane" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
                 <Tab text="Inbox">
-                    <ListView fx:id="listinbox" prefHeight="200.0" prefWidth="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                    <ListView fx:id="listInbox" prefHeight="200.0" prefWidth="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                 </Tab>
                 <Tab text="Sent">
                     <!-- Email list -->
-                    <ListView fx:id="listsent" prefHeight="200.0" prefWidth="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                    <ListView fx:id="listSent" prefHeight="200.0" prefWidth="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                 </Tab>
                 <VBox.margin>
                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -134,7 +134,7 @@
                             <Bloom threshold="0.0" />
                         </effect>
                     </Separator>
-                    <TextArea fx:id="mailcontent" editable="false" prefHeight="301.0" prefWidth="819.0" styleClass="undecorated-text-area" text="email content" wrapText="true" VBox.vgrow="SOMETIMES">
+                    <TextArea fx:id="mailContent" editable="false" prefHeight="301.0" prefWidth="819.0" styleClass="undecorated-text-area" text="email content" wrapText="true" VBox.vgrow="SOMETIMES">
                         <VBox.margin>
                             <Insets left="10.0" right="10.0" top="10.0" />
                         </VBox.margin>

@@ -10,8 +10,6 @@ import java.rmi.RemoteException;
 
 public class ClientModel {
     private String address;
-    //TODO: sostituire address con la classe User
-    private User currentUser;
     private ServerRemote serverRemote; //ServerRemote interface
     private ObservableList<Email> sent;
     private ObservableList<Email> inbox;
@@ -31,10 +29,6 @@ public class ClientModel {
 
     public void setServerRemote(ServerRemote serverRemote) {
         this.serverRemote = serverRemote;
-    }
-
-    public User getCurrentUser() {
-        return currentUser;
     }
 
     public String getAddress() {

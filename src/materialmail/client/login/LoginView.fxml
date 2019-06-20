@@ -47,7 +47,7 @@
                             <Image url="@../../resources/mail.png" />
                         </image>
                     </ImageView>
-                    <Label fx:id="loginfailure" alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="155.0" styleClass="label-error" text="error that could appear" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
+                    <Label fx:id="loginFailure" alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="155.0" styleClass="label-error" text="error that could appear" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
                 </children>
             </GridPane>
         <Button fx:id="close" layoutX="441.0" layoutY="19.0" mnemonicParsing="false" onAction="#handleClose" styleClass="close-button" stylesheets="@../../resources/dark.css" text="X" textAlignment="CENTER" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />

@@ -8,7 +8,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import materialmail.client.editor.EmailEditorController;
@@ -22,13 +21,9 @@ import java.rmi.RemoteException;
 
 public class UIController {
 
-    EmailEditorController emailEditorController;
-    private Stage stage;
+    private EmailEditorController emailEditorController;
     private ClientModel clientModel;
     private ServerRemote serverRemote;
-
-    //    private final String currentUser = ClientModel.getModel().getCurrentUser().getUsername();
-//    private final String currentUser = "alex@matmail.com";
 
     @FXML
     private Label fromLabel, toLabel, dateLabel, objLabel, usernameLabel;
@@ -39,14 +34,13 @@ public class UIController {
     /*A ListView displays a horizontal or vertical list of items
      from which the user may select, or with which the user may interact.*/
     @FXML
-    private ListView<Email> listinbox, listsent;
+    private ListView<Email> listInbox, listSent;
 
     @FXML
-    private TextArea maildate, mailcontent;
+    private TextArea maildate, mailContent;
 
     @FXML
     private TabPane tabPane;
-
     @FXML
     private VBox noMailBox, mailBox;
 
@@ -62,26 +56,21 @@ public class UIController {
      *
      */
     private void initializeLists() {
-        listsent.setItems(this.clientModel.getSent());
-        listsent.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        listSent.setItems(this.clientModel.getSent());
+        listSent.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
-        listinbox.setItems(this.clientModel.getInbox());
-        listinbox.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        listInbox.setItems(this.clientModel.getInbox());
+        listInbox.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
         showEmailDetails(null);
 
-        listsent.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showEmailDetails(newValue));
-        listsent.focusedProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue) {
-                listsent.getSelectionModel().clearSelection();
-            }
-        }); //serve a cancellare la selezione della mail quando si passa da un tab all'altro (da inbox a sent)
+        listSent.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showEmailDetails(newValue));
+        listInbox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showEmailDetails(newValue));
 
-        listinbox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showEmailDetails(newValue));
-        listinbox.focusedProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue) {
-                listinbox.getSelectionModel().clearSelection();
-            }
+        //Setting up tab change
+        tabPane.getSelectionModel().selectedIndexProperty().addListener((obsValue, oldValue, newValue) -> { //If tab changes clear all selections and text
+            clearAllSelections();
+//            System.out.println("Tab number " + newValue + " selected, list selections cleared");
         });
 
         Thread syncMail = new Thread(new CheckMail());
@@ -89,14 +78,19 @@ public class UIController {
         syncMail.start();
     }
 
+    private void clearAllSelections() {
+        listInbox.getSelectionModel().clearSelection();
+        listSent.getSelectionModel().clearSelection();
+    }
+
     private void showEmailDetails(Email email) {
         if (email != null) {
             fromLabel.setText(email.getSender());
-            toLabel.setText(email.getReceiverAsString().toString());
+            toLabel.setText(email.getReceiverAsString());
             objLabel.setText(email.getObject());
             //TODO: da verificare questi due
             dateLabel.setText(email.getDate());
-            mailcontent.setText(email.getText());
+            mailContent.setText(email.getText());
             setVisible();
         }
         else setInvisible();
@@ -107,7 +101,7 @@ public class UIController {
         toLabel.setVisible(false);
         objLabel.setVisible(false);
         dateLabel.setVisible(false);
-        mailcontent.setVisible(false);
+        mailContent.setVisible(false);
     }
 
     private void setVisible() {
@@ -115,7 +109,7 @@ public class UIController {
         toLabel.setVisible(true);
         objLabel.setVisible(true);
         dateLabel.setVisible(true);
-        mailcontent.setVisible(true);
+        mailContent.setVisible(true);
     }
 
     /**
@@ -178,8 +172,8 @@ public class UIController {
     @FXML
     private void handleReply(ActionEvent event) {
         Email email = null;
-        if (!listinbox.getSelectionModel().isEmpty()) {
-            email = listinbox.getSelectionModel().getSelectedItem();
+        if (!listInbox.getSelectionModel().isEmpty()) {
+            email = listInbox.getSelectionModel().getSelectedItem();
             Stage stage = setCreator();
             if (event.getSource() == replyButton) emailEditorController.reply(email);
             else emailEditorController.replyEveryone(email);
@@ -192,11 +186,11 @@ public class UIController {
     @FXML
     private void handleForward() {
         Email email = null;
-        if (!listsent.getSelectionModel().isEmpty()) {
-            email = listsent.getSelectionModel().getSelectedItem();
+        if (!listSent.getSelectionModel().isEmpty()) {
+            email = listSent.getSelectionModel().getSelectedItem();
             forward(email);
-        } else if (!listinbox.getSelectionModel().isEmpty()) {
-            email = listinbox.getSelectionModel().getSelectedItem();
+        } else if (!listInbox.getSelectionModel().isEmpty()) {
+            email = listInbox.getSelectionModel().getSelectedItem();
             forward(email);
         }
         if (email == null)
@@ -218,13 +212,13 @@ public class UIController {
     @FXML
     private void handleDelete() {
         try {
-            if (!listsent.getSelectionModel().isEmpty()) {
-                Email selected = listsent.getSelectionModel().getSelectedItem();
+            if (!listSent.getSelectionModel().isEmpty()) {
+                Email selected = listSent.getSelectionModel().getSelectedItem();
                 serverRemote.deleteSent(clientModel.getAddress(), selected);
-                listsent.getItems().remove(selected);
-            } else if (!listinbox.getSelectionModel().isEmpty()) {
-                Email selected = listinbox.getSelectionModel().getSelectedItem();
-                listinbox.getItems().remove(selected);
+                listSent.getItems().remove(selected);
+            } else if (!listInbox.getSelectionModel().isEmpty()) {
+                Email selected = listInbox.getSelectionModel().getSelectedItem();
+                listInbox.getItems().remove(selected);
                 serverRemote.deleteReceived(clientModel.getAddress(), selected);
             } else
                 AlertUtility.error("Non hai selezionato alcuna mail.");
@@ -259,7 +253,4 @@ public class UIController {
         return stage;
     }
 
-    public void setStage(Stage stage) {
-        this.stage = stage;
-    }
 }

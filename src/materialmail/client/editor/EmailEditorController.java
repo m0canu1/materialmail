@@ -75,13 +75,7 @@ public class EmailEditorController {
     @FXML
     public void handleSend(ActionEvent actionEvent) {
         try {
-            //TODO: forse inutile
-//            if (!mailobject.getText().isEmpty()) {
-//                templateMail.setObject(mailobject.getText());
-//            }
             templateMail.setObject((mailobject.getText()));
-//            if (!bodyfield.getText().isEmpty())
-//                templateMail.setText(bodyfield.getText());
             templateMail.setText(bodyfield.getText());
 
             if (receiversmail.getText().isEmpty()) {

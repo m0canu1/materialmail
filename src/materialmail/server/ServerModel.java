@@ -120,8 +120,6 @@ public class ServerModel extends UnicastRemoteObject implements ServerRemote {
             if (mailboxes.get(i).getAddress().equals(address))
                 mailboxes.remove(i);
         }
-
-
     }
 
     @Override
@@ -198,7 +196,6 @@ public class ServerModel extends UnicastRemoteObject implements ServerRemote {
      *
      * @return un oggetto Observable che segnala il proprio cambiamento ad ogni modifica
      * e, la classe che lo ha chiesto, aggiornerà i dati ad ogni modifica subita dall'oggetto
-     * @throws RemoteException
      */
     @Override
     public ObservableList<Log> getLogs() {

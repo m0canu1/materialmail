@@ -4,7 +4,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import materialmail.core.Email;
 import materialmail.core.ServerRemote;
-import materialmail.core.User;
 
 import java.rmi.RemoteException;
 

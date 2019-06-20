@@ -67,7 +67,7 @@ public class ServerController {
         }
     }
 
-    private void launchRMIRegistry() throws RemoteException {
+    private void launchRMIRegistry() {
         try {
             LocateRegistry.createRegistry(2000);
             serverModel.addLog("E' stato creato il registro RMI");

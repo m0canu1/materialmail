@@ -98,9 +98,11 @@ public class Email implements Serializable {
     public String getReceiverAsString() {
         StringBuilder builder = new StringBuilder();
         for (String value : receivers) {
-            builder.append(value);
+            builder.append(value).append(", ");
         }
         String text = builder.toString();
+        if( text.length() > 0 ) //rimuove l'ultima virgola e lo spazio.
+            text = text.substring(0, text.length() - 2);
         return text;
     }
 

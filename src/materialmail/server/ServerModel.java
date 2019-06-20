@@ -58,6 +58,7 @@ public class ServerModel extends UnicastRemoteObject implements ServerRemote {
         logs.add(new Log(event));
     }
 
+    //TODO: verificare per la consegna di mail ad indirizzi multipli
     public void sendMail(Email email) {
         writeMail("./emails/" + email.getSender() + "/sent.txt", email);
         getMailBoxForAddress(email.getSender()).incrCounter();

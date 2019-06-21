@@ -16,13 +16,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 * {
-    /*-fx-background-color: transparent;*/
+    /* -fx-background-color: transparent; */
     -common-back-color: #009688;
-    -active-back-color: #2d2d2d;
-    -enveloped-back-color: #00867d;
+    -enveloped-back-color: #00645e;
     -tooltip-back-color: #363636;
 
-    /*-left-menu-bar-back-color: -enveloped-back-color;*/
+    -left-menu-bar-back-color: -enveloped-back-color;
 
     /*!*text*!*/
     -fx-font-family: "Segoe UI Semibold";
@@ -30,8 +29,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     -enveloped-text-fill: black;
     -common-text-font-size: 11pt;
     -error-text-fill: #ff0000;
-    /*-active-text-fill: #2EC4B6;*/
-    /*-focused-text-fill: #2EC4B6     ;*/
+    -active-text-fill: #2EC4B6;
+    -focused-text-fill: #2EC4B6;
 
 
     -common-border-fill: white;
@@ -93,44 +92,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     -fx-border-color: white, white;
 }
 
-/*.text-area {*/
-/*    -fx-text-fill: -common-text-fill;*/
-/*    -fx-border-width: .7;*/
-/*    -fx-border-radius: 20;*/
-/*    -fx-font-size: 7pt;*/
-/*    -fx-border-color: white, white;*/
-/*}*/
-
-/*.mail-editor-text-area{*/
-/*    -fx-border-radius: 5;*/
-/*    -fx-font-size: 12pt;*/
-/*}*/
-
-/*.mail-editor-text-field{*/
-/*    -fx-padding: 0 0 0 10;*/
-/*}*/
-
-/*.undecorated-text-area {*/
-/*    -fx-text-fill: -common-text-fill;*/
-/*    -fx-padding: 0;*/
-/*    -fx-border-width: 0;*/
-/*    -fx-font-size: 10pt;*/
-/*}*/
-
-/*.title-text-area {*/
-/*    -fx-text-fill: -common-text-fill;*/
-/*    padding: 0;*/
-/*    -fx-border-width: 0;*/
-/*    -fx-font-size: 18pt;*/
-/*}*/
-
-/*.text-field {*/
-/*    -fx-font-size: 12pt;*/
-/*    -fx-border-width: .7;*/
-/*    -fx-border-radius: 5;*/
-/*    -fx-border-color: white, white;*/
-/*    -fx-text-fill: -common-text-fill;*/
-/*}*/
+.transparent {
+    -fx-background-color: transparent;
+}
 
 .tab  {
     -fx-alignment: CENTER;
@@ -154,53 +118,66 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 .tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
     -fx-border-color: transparent;
+    -fx-background-color: transparent;
+}
+
+.tab-header-background {
+    -fx-background-color: transparent;
 }
 
 .list-view {
     -fx-padding: 10 3 5 2;
+    -fx-background-color: transparent;
 }
 
-/*.list-cell:filled {*/
-/*    -fx-padding: 10 8 10 5;*/
-/*    -fx-background-insets:  3 2 3 2;*/
-/*    -fx-border-insets:  3 2 3 2;*/
-/*    -fx-border-width: .7;*/
-/*    -fx-border-radius: 5;*/
-/*    -fx-background-radius: 5;*/
+.list-cell {
+    -fx-background-color: transparent;
+}
 
-/*    -fx-border-color: derive(-enveloped-back-color, -30%);*/
-/*    -fx-background-color: -enveloped-back-color;*/
-/*    -fx-text-fill: -common-text-fill;*/
-/*    -fx-font-size: 14;*/
-/*}*/
+.list-cell:filled {
+    -fx-padding: 10 8 10 5;
+    -fx-background-insets:  3 2 3 2;
+    -fx-border-insets:  3 2 3 2;
+    -fx-border-width: .7;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
 
-/*.list-cell:filled:selected:focused, .list-cell:filled:selected {*/
-/*    -fx-background-color: derive(-enveloped-back-color, -30%);*/
-/*    -fx-border-color: derive(-active-text-fill,-10%);*/
-/*}*/
+    -fx-border-color: derive(-enveloped-back-color, -30%);
+    -fx-background-color: -enveloped-back-color;
+    -fx-text-fill: -common-text-fill;
+    -fx-font-size: 14;
+}
 
-/*.list-cell:filled:hover {*/
-/*    -fx-background-color: derive(-enveloped-back-color, -10%);;*/
-/*}*/
-/*.list-cell:filled {*/
-/*    -fx-padding: 10 8 10 5;*/
-/*    -fx-background-insets:  3 2 3 2;*/
-/*    -fx-border-insets:  3 2 3 2;*/
-/*    -fx-border-width: .7;*/
-/*    -fx-border-radius: 5;*/
-/*    -fx-background-radius: 5;*/
+.list-cell:filled:selected:focused, .list-cell:filled:selected {
+    -fx-background-color: derive(-enveloped-back-color, -30%);
+}
 
-/*    -fx-border-color: derive(-enveloped-back-color, -30%);*/
-/*    -fx-background-color: -enveloped-back-color;*/
-/*    -fx-text-fill: -common-text-fill;*/
-/*    -fx-font-size: 14;*/
-/*}*/
+.list-cell:filled:hover {
+    -fx-background-color: derive(-enveloped-back-color, -10%);;
+}
 
-/*.list-cell:filled:selected:focused, .list-cell:filled:selected {*/
-/*    -fx-background-color: derive(-enveloped-back-color, -30%);*/
-/*    -fx-border-color: derive(-active-text-fill,-10%);*/
-/*}*/
+.list-cell:filled {
+    -fx-padding: 10 8 10 5;
+    -fx-background-insets:  3 2 3 2;
+    -fx-border-insets:  3 2 3 2;
+    -fx-border-width: .7;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
 
-/*.list-cell:filled:hover {*/
-/*    -fx-background-color: derive(-enveloped-back-color, -10%);;*/
-/*}*/
+    -fx-border-color: derive(-enveloped-back-color, -30%);
+    -fx-background-color: -enveloped-back-color;
+    -fx-text-fill: -common-text-fill;
+    -fx-font-size: 14;
+}
+
+.list-cell:filled:hover {
+    -fx-background-color: derive(-enveloped-back-color, -10%);;
+}
+
+.undecorated-text-area {
+    -fx-text-fill: -common-text-fill;
+    -fx-padding: 0;
+    -fx-border-width: 0;
+    -fx-font-size: 10pt;
+    -fx-background-color: transparent;
+}

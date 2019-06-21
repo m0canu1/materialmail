@@ -1,20 +1,3 @@
-/*
-Copyright (C) 2018
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
-
 * {
     /* -fx-background-color: transparent; */
     -common-back-color: #009688;
@@ -174,10 +157,39 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     -fx-background-color: derive(-enveloped-back-color, -10%);;
 }
 
+/*.text-area {*/
+/*    -fx-text-fill: -common-text-fill;*/
+/*    -fx-border-width: .7;*/
+/*    -fx-border-radius: 20;*/
+/*    -fx-font-size: 7pt;*/
+/*    -fx-border-color: white, white;*/
+/*}*/
+
+.undecorated-text-area .content {
+    -fx-background-color: -common-back-color;
+}
+
 .undecorated-text-area {
     -fx-text-fill: -common-text-fill;
     -fx-padding: 0;
     -fx-border-width: 0;
     -fx-font-size: 10pt;
-    -fx-background-color: transparent;
+}
+
+.text-field {
+    -fx-font-size: 12pt;
+    -fx-border-width: .7;
+    -fx-border-radius: 5;
+    -fx-border-color: white, white;
+    -fx-text-fill: -common-text-fill;
+}
+
+.email-editor-text-area {
+    -fx-border-radius: 5;
+    -fx-font-size: 12pt;
+}
+
+.email-editor-text-field {
+    -fx-padding: 0 0 0 10;
+    -fx-text-fill: black;
 }

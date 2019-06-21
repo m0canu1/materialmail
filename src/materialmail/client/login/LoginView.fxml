@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="login-root" stylesheets="@../../resources/teal.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="materialmail.client.login.LoginController">
     <children>
             <GridPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -50,6 +44,8 @@
                     <Label fx:id="loginFailure" alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="155.0" styleClass="label-error" text="error that could appear" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
                 </children>
             </GridPane>
-        <Button fx:id="close" layoutX="441.0" layoutY="19.0" mnemonicParsing="false" onAction="#handleClose" styleClass="close-button" stylesheets="@../../resources/dark.css" text="X" textAlignment="CENTER" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+        <Button fx:id="close" layoutX="441.0" layoutY="19.0" mnemonicParsing="false" onAction="#handleClose"
+                styleClass="close-button" stylesheets="@../../resources/teal.css" text="X" textAlignment="CENTER"
+                AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0"/>
     </children>
 </AnchorPane>

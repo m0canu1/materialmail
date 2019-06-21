@@ -10,7 +10,8 @@
     <HBox prefHeight="100.0" prefWidth="200.0" styleClass="login-root" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <VBox id="leftmailbox" minWidth="230.0" prefHeight="551.0" prefWidth="364.0" style="-fx-background-color: -left-menu-bar-back-color;" styleClass="leftmailbox">
             <!-- Left panel -->
-            <TabPane fx:id="tabPane" minHeight="0.0" minWidth="0.0" stylesheets="@../resources/teal.css" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+            <TabPane fx:id="tabPane" minHeight="0.0" minWidth="0.0" stylesheets="@../../resources/teal.css"
+                     tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
                 <Tab styleClass="transparent" text="Inbox">
                     <ListView fx:id="listInbox" prefHeight="200.0" prefWidth="30.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                 </Tab>
@@ -41,7 +42,8 @@
                 </padding>
             </HBox>
         </VBox>
-        <VBox alignment="TOP_RIGHT" prefHeight="551.0" prefWidth="800.0" stylesheets="@../resources/teal.css" HBox.hgrow="ALWAYS">
+        <VBox alignment="TOP_RIGHT" prefHeight="551.0" prefWidth="800.0" stylesheets="@../../resources/teal.css"
+              HBox.hgrow="ALWAYS">
             <HBox alignment="CENTER_RIGHT">
                 <HBox spacing="5.0" HBox.hgrow="ALWAYS">
                     <Button fx:id="deleteButton" onAction="#handleDelete" styleClass="action-button">

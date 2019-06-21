@@ -112,57 +112,16 @@ public class UIController {
         mailContent.setVisible(true);
     }
 
+
     /**
-     * Quando viene chiusa la finestra del client
-     * verrà invocato questo metodo che eseguirà la disconnessione
-     * dell'utente.
+     * Metodo che viene invocato quando
+     * l’utente schiaccia il bottone (onAction)
      */
-    public void shutdown() {
-        try {
-            serverRemote.removeMailbox(clientModel.getAddress());
-            serverRemote.addLog(clientModel.getAddress() + " si è disconnesso.");
-        } catch (RemoteException e) {
-            AlertUtility.error("Impossibile disconnettersi dal server.");
-        }
+    @FXML
+    public void handleClose() {
+        shutdown();
+        Platform.exit();
     }
-
-
-    class CheckMail extends Task {
-        Email nuova = null;
-        public Void call() {
-            while (true) {
-                try {
-                    Thread.sleep(5000);
-                    nuova = serverRemote.notRead(clientModel.getAddress());
-                    if (nuova != null) {
-                        Platform.runLater(() -> {
-                            System.out.println("È arrivata una nuova email.");
-//                            AlertUtility.alertInfo("È arrivata una nuova email.");
-                        });
-                        synchronized (clientModel){
-                            clientModel.getInbox().add(nuova);
-                        }
-                        synchronized (serverRemote) {
-                            serverRemote.resetNewMail(clientModel.getAddress());
-                        }
-                        nuova = null;
-                    }
-                } catch (RemoteException e) {
-                    Platform.runLater(() -> {
-                        System.out.println("Impossibile connettersi al server.");
-//                        AlertUtility.alertError("Impossibile connettersi al server.");
-                    });
-                } catch (InterruptedException e) {
-                    Platform.runLater(() -> {
-                        System.out.println("Malfunzionamento del thread.");
-//                        AlertUtility.alertError("Malfunzionamento del thread.");
-                        System.exit(-1);
-                    });
-                }
-            }
-        }
-    }
-
     @FXML
     private void sendNewMail() {
         Stage stage = setCreator();
@@ -227,14 +186,19 @@ public class UIController {
                 AlertUtility.error("Non sei connesso al server.");
         }
     }
+
     /**
-     * Metodo che viene invocato quando
-     * l’utente schiaccia il bottone (onAction)
-     *
-     * @param actionEvent
+     * Quando viene chiusa la finestra del client
+     * verrà invocato questo metodo che eseguirà la disconnessione
+     * dell'utente.
      */
-    public void handleClose(ActionEvent actionEvent) {
-//        shutdown();
+    public void shutdown() {
+        try {
+            serverRemote.removeMailbox(clientModel.getAddress());
+            serverRemote.addLog(clientModel.getAddress() + " si è disconnesso.");
+        } catch (RemoteException e) {
+            AlertUtility.error("Impossibile disconnettersi dal server.");
+        }
     }
 
     private Stage setCreator() {
@@ -246,11 +210,49 @@ public class UIController {
             emailEditorController = loader.getController();
             stage.setTitle("New Mail");
             stage.setScene(new Scene(root));
-            emailEditorController.setUpCreator(serverRemote, clientModel);
+            emailEditorController.setUpEmailEditor(serverRemote, clientModel);
         } catch (IOException e) {
             e.printStackTrace();
         }
         return stage;
+    }
+
+    class CheckMail extends Task {
+
+        Email nuova = null;
+
+        public Void call() {
+            while (true) {
+                try {
+                    Thread.sleep(5000);
+                    nuova = serverRemote.notRead(clientModel.getAddress());
+                    if (nuova != null) {
+                        Platform.runLater(() -> {
+                            System.out.println("È arrivata una nuova email.");
+//                            AlertUtility.alertInfo("È arrivata una nuova email.");
+                        });
+                        synchronized (clientModel) {
+                            clientModel.getInbox().add(nuova);
+                        }
+                        synchronized (serverRemote) {
+                            serverRemote.resetNewMail(clientModel.getAddress());
+                        }
+                        nuova = null;
+                    }
+                } catch (RemoteException e) {
+                    Platform.runLater(() -> {
+                        System.out.println("Impossibile connettersi al server.");
+//                        AlertUtility.alertError("Impossibile connettersi al server.");
+                    });
+                } catch (InterruptedException e) {
+                    Platform.runLater(() -> {
+                        System.out.println("Malfunzionamento del thread.");
+//                        AlertUtility.alertError("Malfunzionamento del thread.");
+                        System.exit(-1);
+                    });
+                }
+            }
+        }
     }
 
 }

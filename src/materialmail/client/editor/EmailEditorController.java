@@ -5,7 +5,6 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import materialmail.client.model.ClientModel;
 import materialmail.core.AlertUtility;
 import materialmail.core.Email;
@@ -32,7 +31,7 @@ public class EmailEditorController {
      * @param serverRemote
      * @param clientModel
      */
-    public void setUpCreator(ServerRemote serverRemote, ClientModel clientModel) {
+    public void setUpEmailEditor(ServerRemote serverRemote, ClientModel clientModel) {
         this.serverRemote = serverRemote;
         this.clientModel = clientModel;
         this.sender = clientModel.getAddress();

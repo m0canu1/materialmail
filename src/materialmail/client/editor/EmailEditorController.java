@@ -64,7 +64,6 @@ public class EmailEditorController {
     }
 
     private void setUpMail() {
-        //TODO: controllare
         receiversmail.setText(templateMail.getReceiverAsString());
         receiversmail.setText(templateMail.getReceiverAsString());
     }

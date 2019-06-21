@@ -157,14 +157,6 @@
     -fx-background-color: derive(-enveloped-back-color, -10%);;
 }
 
-/*.text-area {*/
-/*    -fx-text-fill: -common-text-fill;*/
-/*    -fx-border-width: .7;*/
-/*    -fx-border-radius: 20;*/
-/*    -fx-font-size: 7pt;*/
-/*    -fx-border-color: white, white;*/
-/*}*/
-
 .undecorated-text-area .content {
     -fx-background-color: -common-back-color;
 }

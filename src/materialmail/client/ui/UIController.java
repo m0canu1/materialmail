@@ -88,7 +88,6 @@ public class UIController {
             fromLabel.setText(email.getSender());
             toLabel.setText(email.getReceiverAsString());
             objLabel.setText(email.getObject());
-            //TODO: da verificare questi due
             dateLabel.setText(email.getDate());
             mailContent.setText(email.getText());
             setVisible();

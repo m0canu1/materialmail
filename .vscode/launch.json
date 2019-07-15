@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Server",
+            "request": "launch",
+            "mainClass": "materialmail.server.Server",
+            "projectName": "materialmail_8573cb5"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MaterialMail",
+            "request": "launch",
+            "mainClass": "materialmail.client.app.MaterialMail",
+            "projectName": "materialmail_8573cb5"
+        }
+    ]
+}
